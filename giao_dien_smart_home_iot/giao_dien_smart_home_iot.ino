@@ -3,6 +3,14 @@
 #include <Adafruit_GFX.h>
 #include <EEPROM.h>
 #include <Wire.h>
+#include <SoftwareSerial.h>  // Thư viện để sử dụng SoftwareSerial
+
+// Chân RX và TX cho SoftwareSerial
+#define RX_PIN 16   // Chân RX (Arduino Mega)
+#define TX_PIN 17   // Chân TX (Arduino Mega)
+
+// Khởi tạo SoftwareSerial với RX_PIN và TX_PIN
+SoftwareSerial mySerial(RX_PIN, TX_PIN);  // RX, TX
 
 // Cấu hình cảm ứng (tuỳ chỉnh theo màn hình)
 #define YP A3  
@@ -25,7 +33,7 @@ int screenWidth, screenHeight;
 // Thông tin trạng thái thiết bị
 struct Device {
     int x, y, w, h;
-    bool isOn;
+    bool isOn,isOff;
     uint32_t startTime;
     int power;
 };
@@ -50,6 +58,8 @@ void updateButtonPositions() {
 
 void setup() {
     Serial.begin(115200);
+    mySerial.begin(9600); // Kết nối với ESP32-S3 qua SoftwareSerial
+    Serial1.begin(9600);
     Wire.begin();  // Khởi tạo I2C Master
     tft.begin(tft.readID());
     tft.setRotation(1);  // Xoay màn hình ngang
@@ -60,10 +70,49 @@ void setup() {
     drawUI();
 }
 
+// Nhận dữ liệu từ ESP32-S3 qua SoftwareSerial và cập nhật trạng thái
+// void readFromESP32() {
+//     if (mySerial.available() > 0) {
+//         String data = mySerial.readString();  // Nhận chuỗi dữ liệu từ ESP32-S3
+//         Serial.println(data);  // Hiển thị dữ liệu nhận được từ ESP32-S3
+//         // Phân tích dữ liệu và cập nhật trạng thái thiết bị
+//     }
+// }
+
+
+void updateDeviceState(String data) {
+    // Tìm vị trí dấu phẩy (,) để tách ID thiết bị và trạng thái
+    int commaIndex = data.indexOf(',');
+    if (commaIndex == -1) return;  // Nếu không tìm thấy dấu phẩy, bỏ qua
+
+    int deviceID = data.substring(0, commaIndex).toInt();  // Lấy ID thiết bị
+    String state = data.substring(commaIndex + 1);  // Lấy trạng thái ("ON" hoặc "OFF")
+
+    if (deviceID >= 0 && deviceID < 6) {  // Đảm bảo ID hợp lệ
+        devices[deviceID].isOn = (state == "ON");  // Cập nhật trạng thái thiết bị
+        drawButton(deviceID);  // Vẽ lại nút bấm với trạng thái mới
+        // Serial.print("Updated Device ");
+        // Serial.print(deviceID);
+        // Serial.print(" to ");
+        // Serial.println(state);
+    }
+}
+
 void loop() {
     readTouch();
     updateStatus();
-    delay(50);
+    // readFromESP32();
+    // Kiểm tra xem có dữ liệu từ ESP32-S3 gửi đến không
+    if (Serial1.available()) {
+        String data = Serial1.readStringUntil('\n');  // Đọc từng dòng dữ liệu
+        data.trim();  // Loại bỏ khoảng trắng và ký tự xuống dòng thừa
+        if (data.length() > 0) {
+            Serial.print("Received: ");
+            Serial.println(data);
+            updateDeviceState(data);  // Gọi hàm cập nhật trạng thái thiết bị
+        }
+    }
+    delay(100);
 }
 
 // Vẽ giao diện ban đầu
@@ -88,6 +137,10 @@ void drawButton(int index) {
     tft.setTextColor(WHITE);
     tft.setTextSize(2);
     tft.print(devices[index].isOn ? "ON" : "OFF");
+    // Serial.print("Sent: ID "); Serial.print(index);
+    // Serial.print(" | State "); Serial.println(devices[index].isOn);
+    // String data = String(index) + "," + (devices[index].isOn ? "ON" : "OFF");
+    // Serial1.println(data);  // Gửi dữ liệu về trạng thái nút
 }
 
 // Xử lý cảm ứng
@@ -108,10 +161,10 @@ void readTouch() {
         
         int correctedTouchX = touchY;                // Tọa độ Y của cảm ứng sẽ trở thành tọa độ X của màn hình
         int correctedTouchY = touchX;  // Tọa độ X của cảm ứng sẽ trở thành tọa độ Y của màn hình
-        Serial.print("correctedTouchX: "); Serial.print(correctedTouchX);
-        Serial.print(" | correctedTouchY: "); Serial.println(correctedTouchY);
-        Serial.print("device[2]: ");Serial.print(devices[2].x);Serial.print(" | ");Serial.println(devices[2].y);
-        Serial.print("device[5]: ");Serial.print(devices[5].x);Serial.print(" | ");Serial.println(devices[5].y);
+        // Serial.print("correctedTouchX: "); Serial.print(correctedTouchX);
+        // Serial.print(" | correctedTouchY: "); Serial.println(correctedTouchY);
+        // Serial.print("device[2]: ");Serial.print(devices[2].x);Serial.print(" | ");Serial.println(devices[2].y);
+        // Serial.print("device[5]: ");Serial.print(devices[5].x);Serial.print(" | ");Serial.println(devices[5].y);
         // Kiểm tra các nút
         for (int i = 0; i < 6; i++) {
             if (correctedTouchX >= devices[i].x - 70 && correctedTouchX <= devices[i].x - 70 + devices[i].w &&
@@ -122,6 +175,13 @@ void readTouch() {
                 }
                 drawButton(i);
                 delay(50);
+                // String data = String(i) + "," + (devices[i].isOn ? "ON" : "OFF");
+                // mySerial.println(data);  // Gửi dữ liệu về trạng thái nút
+                // Gửi dữ liệu trạng thái duy nhất một lần khi nhấn nút
+                String data = String(i) + "," + (devices[i].isOn ? "ON" : "OFF");
+                Serial1.println(data);
+                Serial.print("Sent to ESP32-S3: ");
+                Serial.println(data);
             }
         }
 
