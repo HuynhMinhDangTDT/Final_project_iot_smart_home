@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giám sát giếng trời</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <style>
+        html, body{
+            margin: 0;
+            background: #305197;
+            -webkit-text-stroke: 0.3px #ffffff;
+        }
+        .heading{   
+            background-image: url(https://i.upanh.org/2024/01/06/Hac4d19d2c6583b81.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100vw;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-items: space-around;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .heading_list{
+            padding-left: 0;
+            margin: auto 16px;  
+        }
+        .heading_items{
+            list-style: none;
+            margin: 0;
+            display: inline-block;
+            font-size: 20;
+        }
+        /* .icon{
+            margin-left:16px;
+            width: 50px;
+            height: 50px;
+            background-image: url(https://i.upanh.org/2024/01/09/NBK562ffdd7756746c9.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        } */
+        .pic{ 
+            position: fixed;
+            top: 20%;
+            left:34%;
+            width: 400px;
+            height: 250px;
+            border-style: solid;
+            border-color: rgb(197, 197, 197);
+            border-width: 5px;
+            border-radius: 10px;
+            background-image: url(https://img.upanh.tv/2024/01/23/418191711_403997708853769_1518297554977426555_ne790579b02ea436e.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .box{
+            width:100%;
+            display: inline-flex;
+            justify-content: space-between;
+        }
+        .box1{
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 350px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            border-style: hidden;
+            border-radius: 40px;
+            box-shadow: 0 0 40px rgb(54, 141, 203);
+            background-color: rgb(180, 224, 255);
+            overflow: hidden;
+        }  
+        .box2{
+            margin-top: 20px;
+            margin-right:20px;
+            width: 350px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            border-style: hidden;
+            border-radius: 40px;
+            box-shadow: 0 0 40px rgb(54, 141, 203);
+            background-color: rgb(180, 224, 255);
+            overflow: hidden;
+        }
+        .icon_1{
+            width: 75px;
+            height: 75px;
+            background-image: url(https://img.upanh.tv/2024/01/12/clouds-and-sun.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .icon_2{
+            width: 75px;
+            height: 75px;
+            background-image: url(https://img.upanh.tv/2024/01/10/humidity.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }  
+        .icon_4{
+            width: 75px;
+            height: 75px;
+            background-image: url(https://img.upanh.tv/2024/01/10/thermometer.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .icon_5{
+            width: 75px;
+            height: 75px;
+            background-image: url(https://img.upanh.tv/2024/01/12/clock.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        /* .icon_6{
+            position: relative;
+            margin-top:20px;
+            width: 75px;
+            height: 75px;
+            background-image: url(https://img.upanh.tv/2024/01/10/warning.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        } */
+        .list{
+            display: contents;
+            list-style: none;
+        }
+        .btn{
+            display: inline-block;
+            text-decoration: none;
+            outline: none;
+            width: 100px;
+            height: 100px;
+            color: #000000;
+            /* padding: 30px 30px; */
+            clip-path: circle(50% at 50% 50%);
+            border-radius: 100px;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        .btn_open:hover{
+            background-color: #00ff95;
+            border-color: #00ff95;
+        }
+        .btn_close:hover{
+            background-color: #ff0000;
+            border-color: #ff0000;   
+        }
+        .btn_open{
+            position: absolute;
+            top: 65%;
+            left: 35%;
+            background-color: #55ffb8;
+            border-color: #00ff95;
+            border-width: 10px;
+        }
+        .btn_close{
+            position: absolute;
+            top: 65%;
+            right: 35%;
+            background-color: #ff6666;
+            border-color: #ff0000;
+            border-width: 10px;
+        }
+        .state{ 
+            position: fixed; 
+            bottom: 20px;     
+            margin-left: 20px;
+            font-weight: 700;
+            color: white;
+        }
+        #time{
+            position: fixed;
+            top: 56%;
+            left: 47%;
+            padding: 10px;
+            font-family: verdana;
+            font-size: 2em;
+            border-radius: 10px;
+            border-style: hidden;
+            text-align: center;
+            color: white;
+        }
+        .font{
+            font-weight: 600;
+        }
+        .logout{
+            margin-top: 30px;
+            margin-left: 90%;
+            display: flex;
+            width: 100px;
+            height: 50px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        .logout:hover{
+            text-decoration: underline;
+        }
+        @media only screen and (max-width: 740px){
+            .heading{
+                background-image: none;
+                background: rgb(180, 224, 255);
+            }
+            .heading_items{
+                font-size: 13px;
+                color: black;
+            }
+            .pic{
+                background-image: none;
+                border-style: none;
+            }
+            .heading_list{
+                display: flex;
+            }
+            .box1{
+                width: 40vw;
+                height: 45vh;
+            }
+            .box2{
+                width: 40vw;
+                height: 45vh;
+            }
+            #time{
+                position: fixed;
+                top: 60vh;
+                left: 41vw;
+                color: white;
+            }
+            .btn_open{
+                position: fixed;
+                left: 15vw;
+            }
+            .btn_close{
+                position: fixed;
+                right: 15vw;
+            }
+            .logout{
+                position: fixed;
+                right: 38vw;
+                bottom: 12vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    <!-- <canvas id="chart"></canvas> -->
+    {% block content %}
+        <div class="heading">
+            <!-- <ul class="heading_list fs-4"><li class="heading_items"><strong>Ứng dụng công nghệ AI nhằm tối ưu hóa công dụng</strong></li></ul> -->
+            <!-- <ul class="heading_list fs-4"><li class="heading_items"><strong> và tính năng của giếng trời thông minh</strong></li></ul> -->
+            <!-- <ul class="heading_list fs-5"><li class="heading_items"><div class="font">Nguyễn Gia Phúc - Nguyễn Thanh Phú</div></li></ul> -->
+            <!-- <ul class="heading_list fs-5"><li class="heading_items">Lớp 11T2 - Trường THPT chuyên Nguyễn Bỉnh Khiêm</li></ul> -->
+            <!-- <div class="icon"></div> -->
+        </div>
+    <form method="post" action = "{% url 'dashboard' %}">
+        {% csrf_token %}
+        <div class="box">
+            <div class="box box1">
+                <label class="fs-3"><strong>Thời tiết</strong></label>
+                <ul class="list">
+                    <li><div class="icon_1"></div></li>
+                    <li><div class="fs-4"><label class = "form-check-label" for = "validateFormCheck1" name = "message_thoi_tiet">{{ message_thoi_tiet }}</label></div></li>
+                </ul>
+                <label class="fs-3"><strong>Độ ẩm</strong></label>
+                <ul class="list">
+                    <li><div class="icon_2"></div></li>
+                    <li><div class="fs-4" ><label class = "form-check-label" for = "validateFormCheck1" name = "hum">Độ ẩm hiện tại: {{ hum }} Rh</label></div></li>
+                </ul>
+            </div>
+            
+            <div class="box box2">
+                <label class="fs-3"><strong>Nhiệt độ</strong></label>
+                <ul class="list">
+                    <li><div class="icon_4"></div></li>
+                    <li><div class="fs-4"><label class = "form-check-label" for = "validateFormCheck1" name = "temp"> {{ temp }}°C</label></div></li>
+                </ul>
+                <label class="fs-3" ><strong>Thời điểm</strong></label>
+                <ul class="list">
+                    <li><div class="icon_5"></div></li>
+                    <li><div class="fs-4"><label class = "form-check-label" for = "validateFormCheck1" name = "message_thoi_diem">{{ message_thoi_diem }}</label></div></li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div>
+            <button type="submit" class="btn btn_close" name="dong_gieng" value="dong_gieng"><strong>Đóng giếng</strong></button>
+            <button type="submit" class="btn btn_open" name="mo_gieng" value="mo_gieng"><strong>Mở giếng</strong></button>
+        </div> -->
+
+        <div id="time" class="fs-5"></div>
+        <div><a class="logout" href="{% url 'logout' %}">Đăng xuất</a></div>
+        <!-- <div class="pic"></div> -->
+    </form> 
+<!-- <footer>
+    <div class="state fs-3"><label class = "form-check-label" for = "validateFormCheck1" name = "mess">Tình trạng nhà hiện tại: {{ mess }}</label></div>
+</footer> -->
+        <!-- {% comment %} <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a> {% endcomment %} -->
+    {% endblock %}
+    <script>
+        window.setTimeout(function () {
+            location.href = "http://127.0.0.1:8000";
+            // location.href = "https://7530-2402-9d80-3c1-98f3-f125-6b92-1a96-bfc3.ngrok-free.app/giam_sat_gieng_troi/";
+        }, 200); // refresh/redirect after 5 seconds.
+        function dongho() {
+            var time = new Date();
+            var gio = time.getHours();
+            var phut = time.getMinutes();
+            var giay = time.getSeconds();
+            if (gio<10)
+                gio = "0" + gio;
+            if (phut<10)
+                phut = "0" + phut;
+            if (giay<10)
+                giay = "0" + giay;
+            document.getElementById("time").innerHTML = gio + ":" + phut;
+            setTimeout("dongho", 1000);
+        }
+        dongho();
+    </script>
+</body>
+</html>
