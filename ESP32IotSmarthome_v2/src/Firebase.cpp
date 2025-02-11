@@ -5,6 +5,7 @@
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
 #include <Filters.h>
+#include <ACS712.h>
 
 
 #include <addons/TokenHelper.h>
@@ -19,6 +20,7 @@
 
 RunningStatistics inputStats;  // Đối tượng tính toán RMS
 
+
 float testFrequency = 50;                     // nhà bạn dùng điện bao nhiêu Hz? Ở VN là 60Hz
 float windowLength = 20.0/testFrequency;     // mỗi tín hiệu thu về cách nhau bao nhiêu thời gian
 int sensorValue1 = 0;
@@ -27,19 +29,31 @@ int sensorValue3 = 0;
 int sensorValue4 = 0;
 int sensorValue5 = 0;
 int sensorValue6 = 0;
-// float intercept = 0.02;  // Hiệu chỉnh
-// float slope = 0.027;  // Hiệu chỉnh
-float intercept = -0.1310; //  cẩn sửa trong quá trình hiệu chuẩn
-float slope = 0.04099; // cẩn sửa trong quá trình hiệu chuẩn
-float current_amps;  // Dòng điện đo được
+// float intercept = 1263151.1;  // Hiệu chỉnh
+// float slope = -0.0015493;  // Hiệu chỉnh
+// float intercept = -0.1310; //  cẩn sửa trong quá trình hiệu chuẩn
+// float slope = 0.04099; // cẩn sửa trong quá trình hiệu chuẩn
+// float current_amps;  // Dòng điện đo được
 
-float voltage = 225.10;  // Điện áp xoay chiều (V)
-float power;  // Công suất tức thời (W)
-float energyWh = 0.0;  // Năng lượng tiêu thụ (Wh)
+// float voltage = 225.10;  // Điện áp xoay chiều (V)
+// float power;  // Công suất tức thời (W)
+// float energyWh = 0.0;  // Năng lượng tiêu thụ (Wh)
 
 unsigned long printPeriod = 1000;  // Thời gian in Serial (ms)
 unsigned long previousMillis = 0;  // Lưu thời điểm in cuối
 unsigned long lastUpdateTime = 0;  // Lưu thời gian đo trước đó
+// float energyConsumedRL1 = 0.0;  // Biến lưu tổng điện năng tiêu thụ (Wh)
+// float energyConsumedRL2 = 0.0;  // Biến lưu tổng điện năng tiêu thụ (Wh)
+// float energyConsumedRL3 = 0.0;  // Biến lưu tổng điện năng tiêu thụ (Wh)
+// float energyConsumedRL4 = 0.0;  // Biến lưu tổng điện năng tiêu thụ (Wh)
+// float energyConsumedRL5 = 0.0;  // Biến lưu tổng điện năng tiêu thụ (Wh)
+// float energyConsumedRL6 = 0.0;  // Biến lưu tổng điện năng tiêu thụ (Wh)
+
+#define NUM_SENSORS 6  // Số lượng cảm biến
+float energyConsumed[NUM_SENSORS] = {0};  // Mảng lưu điện năng tiêu thụ cho từng cảm biến
+// Thông số cho từng cảm biến
+float zeroCurrentADC[NUM_SENSORS] = {2119.00, 2119.00, 2119.00, 2119.00, 2119.00, 2119.00}; // Cập nhật giá trị này nếu cần
+float slope[NUM_SENSORS] = {-0.0015493, -0.0015493, -0.0015493, -0.0015493, -0.0015493, -0.0015493};  // Cập nhật hệ số chuyển đổi nếu cần
 
 #define capability_RL1 4
 #define capability_RL2 5
@@ -289,64 +303,228 @@ void readcapacity(const char* quserid){
     }
     Serial.println();
   }
+  
+
+  // sensorValue1 = analogRead(capability_RL1);  //đọc giá trị
+  // sensorValue2 = analogRead(capability_RL2);  //đọc giá trị
+  // sensorValue3 = analogRead(capability_RL3);  //đọc giá trị
+  // sensorValue4 = analogRead(capability_RL4);  //đọc giá trị
+  // sensorValue5 = analogRead(capability_RL5);  //đọc giá trị
+  // sensorValue6 = analogRead(capability_RL6);  //đọc giá trị
+
+  //----------------------------------------------------------------
+  //Tìm ADC khi không có tải
+  // int sum = 0;
+  // int numSamples = 100;
+
+  // for (int i = 0; i < numSamples; i++) {
+  //     sum += sensorValue1;
+  //     delay(10);
+  // }
+
+  // float zeroCurrentADC = sum / (float)numSamples;
+  // Serial.print("Zero Current ADC: ");
+  // Serial.println(zeroCurrentADC);
+  //------------------------------------------------------------------
+
+  unsigned long currentMillis = millis();
+  float elapsedTime = (currentMillis - previousMillis) / 3600000.0; // Chuyển ms sang giờ
+  previousMillis = currentMillis;
+  for (int i = 0; i < NUM_SENSORS; i++) {
+    int sensorValue = 0;  // Biến lưu giá trị cảm biến
+    float power = 0;
+    float current = 0;
+    switch(i) {
+        case 0: sensorValue = analogRead(capability_RL1); break;
+        case 1: sensorValue = analogRead(capability_RL2); break;
+        case 2: sensorValue = analogRead(capability_RL3); break;
+        case 3: sensorValue = analogRead(capability_RL4); break;
+        case 4: sensorValue = analogRead(capability_RL5); break;
+        case 5: sensorValue = analogRead(capability_RL6); break;
+    }
+    String urlDevice = String("Users/") + quserid + String("/device/") + i + String ("/status");
+    led_state = Firebase.RTDB.getString(&fbdo, urlDevice) ? fbdo.to<const char *>() : "false" ;
+    // Serial.println(urlDevice);
+    if (led_state == "true") {
+      // Tính dòng điện từ giá trị ADC
+      current = (sensorValue - zeroCurrentADC[i]) * slope[i];
+
+      // Tính công suất (W)
+      power = Voltage * abs(current);
+
+      // Tính điện năng tiêu thụ (Wh)
+      energyConsumed[i] += power * elapsedTime;
+    }
+    else {
+        Serial.printf("Get string... %s\n", Firebase.RTDB.getString(&fbdo, urlDevice) ? fbdo.to<const char *>() : fbdo.errorReason().c_str());
+    }
+    
+
+    // Lưu giá trị điện năng vào EEPROM sau mỗi 5 giây (hoặc thời gian bạn muốn)
+    // if (currentMillis % 5000 == 0) {
+    //     EEPROM.write(EEPROM_ADDR[i], energyConsumed[i]);  // Lưu giá trị vào EEPROM
+    //     EEPROM.commit();  // Lưu giá trị vào bộ nhớ không thay đổi
+    // }
+    
+    // Lưu dữ liệu công suất và năng tiêu thụ vào Firebase
+    String urlPower = String("Users/") + quserid + String("/device/") + i + String("/power");
+    String urlEnergy = String("Users/") + quserid + String("/device/") + i + String("/energyConsumption");
+
+    // Gửi công suất và năng tiêu thụ lên Firebase
+    Firebase.RTDB.setFloat(&fbdo, urlPower.c_str(), power);
+    Firebase.RTDB.setFloat(&fbdo, urlEnergy.c_str(), energyConsumed[i]);
+
+    // Hiển thị kết quả
+    Serial.print("Sensor ");
+    Serial.print(i+1);
+    Serial.print(" - ADC: ");
+    Serial.print(sensorValue);
+    Serial.print(" | Current: ");
+    Serial.print(current, 3);
+    Serial.print(" A | Power: ");
+    Serial.print(power, 3);
+    Serial.print(" W | Energy: ");
+    Serial.print(energyConsumed[i] / 1000, 3);
+    Serial.println(" Wh");
+  }
+  // float zeroCurrentADCRL2 = 2119.00;
+  // int rawValueRL2 = sensorValue2;
+  // float currentRL2 = (rawValueRL2 - zeroCurrentADCRL2) * slope;  
+  // float powerRL2 = Voltage * abs(currentRL2);  // Tính công suất (W)
+
+  
+
+  // energyConsumedRL2 += powerRL2 * elapsedTime; // Cộng dồn điện năng tiêu thụ (Wh)
+  // Serial.print("ADC Value RL2: ");
+  // Serial.print(rawValueRL2);
+  // Serial.print(" | CurrentRL2: ");
+  // Serial.print(currentRL2, 3);
+  // Serial.print(" A | PowerRL2: ");
+  // Serial.print(powerRL2, 3);
+  // Serial.print(" W | Energy: ");
+  // Serial.print(energyConsumedRL2, 3);
+  // Serial.println(" Wh");
+
   delay(1000);
 }
-void intitreadcapacity_Relay(){
-  RunningStatistics inputStats;                 // tạo đối tượng để đo lường
-  inputStats.setWindowSecs( windowLength );
-  lastUpdateTime = millis();
-}
-void readcapacity_Relay(const char* quserid){
-  // RunningStatistics inputStats;                 // tạo đối tượng để đo lường
-  // inputStats.setWindowSecs( windowLength );
+// void intitreadcapacity_Relay(){
+//   RunningStatistics inputStats;                 // tạo đối tượng để đo lường
+//   inputStats.setWindowSecs( windowLength );
+//   lastUpdateTime = millis();
+// }
+// void readcapacity_Relay(const char* quserid){
+//   // RunningStatistics inputStats;                 // tạo đối tượng để đo lường
+//   // inputStats.setWindowSecs( windowLength );
 
-  sensorValue1 = analogRead(capability_RL1);  //đọc giá trị
-  sensorValue2 = analogRead(capability_RL2);  //đọc giá trị
-  sensorValue3 = analogRead(capability_RL3);  //đọc giá trị
-  sensorValue4 = analogRead(capability_RL4);  //đọc giá trị
-  sensorValue5 = analogRead(capability_RL5);  //đọc giá trị
-  sensorValue6 = analogRead(capability_RL6);  //đọc giá trị
-  inputStats.input(sensorValue1);  // đưa nó vào bộ kiểm tra
-  float voltage = sensorValue1*5/1023.0;
-  float current_test = (sensorValue1-2.5)/0.100; // 0.185V/A for 5A max type ; 0.100V/A for 20A max type ; 0.66V/A for 30A max type
-  if (current_test < 0.16){
-    current_test = 0;
-  }
-  Serial.print("current_test: ");
-  Serial.println(current_test);
-  if ((millis() - previousMillis) >= printPeriod) {
-    unsigned long currentTime = millis();
-    float deltaT = (currentTime - lastUpdateTime) / 3600000.0; // Chuyển đổi ms → giờ
-    lastUpdateTime = currentTime;
+//   sensorValue1 = analogRead(capability_RL1);  //đọc giá trị
+//   sensorValue2 = analogRead(capability_RL2);  //đọc giá trị
+//   sensorValue3 = analogRead(capability_RL3);  //đọc giá trị
+//   sensorValue4 = analogRead(capability_RL4);  //đọc giá trị
+//   sensorValue5 = analogRead(capability_RL5);  //đọc giá trị
+//   sensorValue6 = analogRead(capability_RL6);  //đọc giá trị
 
-    previousMillis = millis();  // Cập nhật thời điểm in
 
-    float rms = inputStats.sigma(); // Giá trị RMS của tín hiệu
-    current_amps = rms * slope + intercept; // Chuyển đổi sang Ampere
-    if(current_amps <= -0.13){
-      current_amps = 0;
-    }
-    power = voltage * current_amps * 0.98;  // Công suất (W)
-    energyWh += power * deltaT;  // Cộng dồn năng lượng tiêu thụ (Wh)
 
-    Serial.print("RMS Value: ");
-    Serial.print(rms);
-    Serial.print(" | Current (A): ");
-    Serial.print(current_amps);
-    Serial.print(" | Power (W): ");
-    Serial.print(power);
-    Serial.print(" | Energy (Wh): ");
-    Serial.println(energyWh);
-  }
 
-  // Serial.println( "capacity_Relay1: " + String(sensorValue1) );
-  // Serial.println( "capacity_Relay2: " + String(sensorValue2) );
-  // Serial.println( "capacity_Relay3: " + String(sensorValue3) );
-  // Serial.println( "capacity_Relay4: " + String(sensorValue4) );
-  // Serial.println( "capacity_Relay5: " + String(sensorValue5) );
-  // Serial.println( "capacity_Relay6: " + String(sensorValue6) );
+  // float voltage = sensorValue2*3.3/1023.0;
+  // #define SENSITIVITY 0.100 // Độ nhạy của ACS712 20A (100 mV/A)
+  // #define VREF 3.3       // Điện áp tham chiếu của ESP32-S3
+  // #define ADC_RESOLUTION 4095.0  // Độ phân giải 12-bit của ADC trên ESP32-S3
+  // #define ZERO_CURRENT_VOLTAGE 1.71  // Điện áp khi dòng 0A (trung điểm của VCC)
+  // float voltage = sensorValue2*VREF/ADC_RESOLUTION;
+  // Serial.print("voltage: ");
+  // Serial.println(voltage);
+  // float current_test = -((voltage-ZERO_CURRENT_VOLTAGE)/SENSITIVITY)-1.19; // 0.185V/A for 5A max type ; 0.100V/A for 20A max type ; 0.66V/A for 30A max type
+  // if (current_test < 0.02){
+  //   current_test = 0;
+  // }
+  // Serial.print("current_test: ");
+  // Serial.println(current_test);
   
-}
+
+  // inputStats.input(sensorValue2);  // đưa nó vào bộ kiểm tra
+  // if ((millis() - previousMillis) >= printPeriod) {
+  //   unsigned long currentTime = millis();
+  //   float deltaT = (currentTime - lastUpdateTime) / 3600000.0; // Chuyển đổi ms → giờ
+  //   lastUpdateTime = currentTime;
+
+  //   previousMillis = millis();  // Cập nhật thời điểm in
+
+  //   float rms = inputStats.sigma(); // Giá trị RMS của tín hiệu
+  //   current_amps = rms * slope + intercept; // Chuyển đổi sang Ampere
+
+  //   power = voltage * current_amps * 0.98;  // Công suất (W)
+  //   energyWh += power * deltaT;  // Cộng dồn năng lượng tiêu thụ (Wh)
+
+  //   Serial.print("RMS Value: ");
+  //   Serial.print(rms);
+  //   Serial.print(" | Current (A): ");
+  //   Serial.print(current_amps);
+  //   Serial.print(" | Power (W): ");
+  //   Serial.print(power);
+  //   Serial.print(" | Energy (Wh): ");
+  //   Serial.println(energyWh);
+  // }
+
+  // int sum = 0;
+  // int numSamples = 100;
+
+  // for (int i = 0; i < numSamples; i++) {
+  //     sum += sensorValue2;
+  //     delay(10);
+  // }
+
+  // float zeroCurrentADC = sum / (float)numSamples;
+  // Serial.print("Zero Current ADC: ");
+  // Serial.println(zeroCurrentADC);
+  // float zeroCurrentADC = 2119.00;
+  // int rawValue = sensorValue2;
+  // float current2 = (rawValue - zeroCurrentADC) * slope;  
+
+  // Serial.print("ADC Value: ");
+  // Serial.print(rawValue);
+  // Serial.print(" | Current: ");
+  // Serial.print(current2, 3);
+  // Serial.println(" A");
+  // float power = VOLTAGE * abs(current2);  // Tính công suất (W)
+  // Serial.print("ADC Value: ");
+  // Serial.print(rawValue);
+  // Serial.print(" | Current: ");
+  // Serial.print(current, 3);
+  // Serial.print(" A | Power: ");
+  // Serial.print(power, 3);
+  // Serial.println(" W");
+
+  // RunningStatistics inputStats;  // Tạo bộ lọc
+  // inputStats.setWindowSecs(windowLength);
+
+  // unsigned long startMillis = millis();
+  // while (millis() - startMillis < windowLength * 1000) {
+  //     inputStats.input(sensorValue2);
+  // }
+
+  // if ((millis() - previousMillis) >= printPeriod) {
+  //     previousMillis = millis();
+
+  //     // Chuyển đổi giá trị ADC thành Ampe
+  //     float sigmaValue = inputStats.sigma();  // Giá trị RMS
+  //     current_amps = intercept + slope * sigmaValue; 
+
+  //     Serial.print("ADC RMS: ");
+  //     Serial.print(sigmaValue);
+  //     Serial.print(" | Current: ");
+  //     Serial.print(current_amps, 3);
+  //     Serial.println(" A");
+  // }
+
+//   Serial.println( "capacity_Relay1: " + String(sensorValue1) );
+//   Serial.println( "capacity_Relay2: " + String(sensorValue2) );
+//   Serial.println( "capacity_Relay3: " + String(sensorValue3) );
+//   Serial.println( "capacity_Relay4: " + String(sensorValue4) );
+//   Serial.println( "capacity_Relay5: " + String(sensorValue5) );
+//   Serial.println( "capacity_Relay6: " + String(sensorValue6) );
+  
+// }
 void TurnLight(const char* quserid)
 {
     if (Firebase.ready())

@@ -32,7 +32,7 @@ void setup() {
   pinMode(capability_RL5,INPUT);
   pinMode(capability_RL6,INPUT);
   Wire.begin(pin_SDA, pin_SCL);
-  intitreadcapacity_Relay();
+  // intitreadcapacity_Relay();
   WiFi.disconnect();
   delay(1000);
   EEPROM.begin(96);
@@ -85,7 +85,7 @@ void loop() {
   readTemp(quserid);
   TurnLight(quserid);
   readcapacity(quserid);
-  readcapacity_Relay(quserid);
+  // readcapacity_Relay(quserid);
 }
 
 

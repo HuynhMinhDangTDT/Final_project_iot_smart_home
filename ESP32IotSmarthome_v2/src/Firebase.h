@@ -13,13 +13,13 @@
 
 
 void initLcd();
-void intitreadcapacity_Relay();
+// void intitreadcapacity_Relay();
 void connectFirebase();
 void initDHT();
 void readTemp(const char* quserid);
 void TurnLight(const char * quserid);
 void initMobus();
 void readcapacity(const char* quserid);
-void readcapacity_Relay(const char* quserid);
+// void readcapacity_Relay(const char* quserid);
 
 #endif 
