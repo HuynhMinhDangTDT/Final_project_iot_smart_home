@@ -285,9 +285,9 @@
       // JavaScript để gửi form tự động khi thay đổi toggle
       function autoSubmitToggle(input) {
         // if (checkbox.checked) {
-        //     checkbox.value = "true";  // Nếu checked, gửi giá trị True
+        //     checkbox.value = True;  // Nếu checked, gửi giá trị True
         // } else {
-        //     checkbox.value = "false";  // Nếu unchecked, gửi giá trị False
+        //     checkbox.value = False;  // Nếu unchecked, gửi giá trị False
         // }
         const form = input.closest("form"); // Tìm form chứa toggle
         form.submit(); // Gửi form
@@ -322,6 +322,27 @@
       setInterval(testInternetSpeed, 10000); // Every 10 seconds
       testInternetSpeed(); // Run the test immediately when the page loads
     </script>
+    <script>
+      window.setTimeout(function () {
+          location.href = "http://127.0.0.1:8000";
+          // location.href = "https://7530-2402-9d80-3c1-98f3-f125-6b92-1a96-bfc3.ngrok-free.app/giam_sat_gieng_troi/";
+      }, 3000); // refresh/redirect after 5 seconds.
+      function dongho() {
+          var time = new Date();
+          var gio = time.getHours();
+          var phut = time.getMinutes();
+          var giay = time.getSeconds();
+          if (gio<10)
+              gio = "0" + gio;
+          if (phut<10)
+              phut = "0" + phut;
+          if (giay<10)
+              giay = "0" + giay;
+          document.getElementById("time").innerHTML = gio + ":" + phut;
+          setTimeout("dongho", 1000);
+      }
+      dongho();
+  </script>
 
 </head>
   <body>
@@ -401,10 +422,10 @@
                   <div class="label-right">
                     <div class="time-wrap">
                       <h2>15:50</h2>
-                      <p class="normal-p">Saturday January 20, 2023</p>
+                      <p class="normal-p">Saturday January 20, 2025</p>
                     </div>
                     <div class="weather-wrap">
-                      <div class="timer-wrap">
+                      <!-- <div class="timer-wrap">
                         
                         <p class="normal-p"><img
                           src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b5d_speed.svg"
@@ -412,12 +433,17 @@
                           alt=""
                           class="icon-wrap"
                         /> : <p class="purple"><span class="speed" id="internet-speed">0 Mbps</span></p></p>
-                      </div>
+                      </div> -->
                       <p class="gold"  for = "validateFormCheck1" name = "temp"><img
                         src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b5c_temperature.svg"
                         loading="lazy"
                         alt=""
                         class="icon-wrap"/> : {{ temp }}°C</p>
+                      <!-- <p class="gold"  for = "validateFormCheck1" name = "temp"><img
+                        src="/static/img/humidity.png"
+                        loading="lazy"
+                        alt=""
+                        class="icon-wrap"/> : {{ hum }}%</p> -->
                     </div>
                   </div>
                 </div>
@@ -432,14 +458,14 @@
                       alt=""
                       class="icon-img"/> -->
                       <label class="switch">
-                        <input type="checkbox" name="toggle0" value="true" {% if toggles0 %}checked{% endif %} onchange="autoSubmitToggle(this)">
+                        <input type="checkbox" name="toggle0" value=True {% if toggles0 %}checked{% endif %} onchange="autoSubmitToggle(this)">
                         <span class="slider round"></span>
                       </label>
                 </div>
                 <div class="card-bot">
                   <div class="card-left">
-                    <p class="p-20 white"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                    /> Tieu thu: 230kWh</p>
+                    <p class="p-20 white" name = "Energy_device0"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
+                      /> Tieu thu: {{ Energy_device0 }}<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device0 }}</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -453,7 +479,7 @@
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
                   </p>
-                  <p class="grey" name = "namedv0">{{ namedv0 }}</p>
+                  <p class="white" name = "namedv0">{{ namedv0 }}</p>
                 </div>
               </div>
               <div class="card2">
@@ -465,15 +491,15 @@
                       alt=""
                       class="icon-img"/> -->
                       <label class="switch">
-                        <input type="checkbox" name="toggle1" value="true" {% if toggles1 %}checked{% endif %} onchange="autoSubmitToggle(this)">
+                        <input type="checkbox" name="toggle1" value=True {% if toggles1 %}checked{% endif %} onchange="autoSubmitToggle(this)">
                         <span class="slider round"></span>
                       </label>
 
                 </div>
                 <div class="card-bot">
                   <div class="card-left">
-                    <p class="p-20 white"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                    /> Tieu thu: 230kWh</p>
+                    <p class="p-20 white" name = "Energy_device1"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
+                      /> Tieu thu: {{ Energy_device1 }}<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device1 }}</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -487,7 +513,7 @@
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
                   </p>
-                  <p class="grey" name = "namedv1">{{ namedv1 }}</p>
+                  <p class="white" name = "namedv1">{{ namedv1 }}</p>
                 </div>
               </div>
               <div class="card2">
@@ -499,15 +525,15 @@
                       alt=""
                       class="icon-img"/> -->
                       <label class="switch">
-                        <input type="checkbox" name="toggle2" value="true" {% if toggles2 %}checked{% endif %} onchange="autoSubmitToggle(this)">
+                        <input type="checkbox" name="toggle2" value=True {% if toggles2 %}checked{% endif %} onchange="autoSubmitToggle(this)">
                         <span class="slider round"></span>
                       </label>
 
                 </div>
                 <div class="card-bot">
                   <div class="card-left">
-                    <p class="p-20 white"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                    /> Tieu thu: 230kWh</p>
+                    <p class="p-20 white" name = "Energy_device2"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
+                      /> Tieu thu: {{ Energy_device2 }}<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device2 }}</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -521,7 +547,7 @@
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
                   </p>
-                  <p class="grey" name = "namedv2">{{ namedv2 }}</p>
+                  <p class="white" name = "namedv2">{{ namedv2 }}</p>
                 </div>
               </div>
               <div class="card2">
@@ -533,15 +559,15 @@
                       alt=""
                       class="icon-img"/> -->
                       <label class="switch">
-                        <input type="checkbox" name="toggle3" value="true" {% if toggles3 %}checked{% endif %} onchange="autoSubmitToggle(this)">
+                        <input type="checkbox" name="toggle3" value=True {% if toggles3 %}checked{% endif %} onchange="autoSubmitToggle(this)">
                         <span class="slider round"></span>
                       </label>
 
                 </div>
                 <div class="card-bot">
                   <div class="card-left">
-                    <p class="p-20 white"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                    /> Tieu thu: 230kWh</p>
+                    <p class="p-20 white" name = "Energy_device3"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
+                      /> Tieu thu: {{ Energy_device3 }}<p class="p-15 white" name = "power_device3">Cong suat: {{ power_device5 }}</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -555,7 +581,7 @@
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
                   </p>
-                  <p class="grey" name = "namedv3">{{ namedv3 }}</p>
+                  <p class="white" name = "namedv3">{{ namedv3 }}</p>
                 </div>
               </div>
               <div class="card2">
@@ -568,7 +594,7 @@
                       alt=""
                       class="icon-img"/> -->
                       <label class="switch">
-                        <input type="checkbox" name="toggle4" value="true" {% if toggles4 %}checked{% endif %} onchange="autoSubmitToggle(this)">
+                        <input type="checkbox" name="toggle4" value=True {% if toggles4 %}checked{% endif %} onchange="autoSubmitToggle(this)">
                         <span class="slider round"></span>
                       </label>
                     </form>
@@ -576,8 +602,8 @@
                 </div>
                 <div class="card-bot">
                   <div class="card-left">
-                    <p class="p-20 white"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                    /> Tieu thu: 230kWh</p>
+                    <p class="p-20 white" name = "Energy_device4"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
+                      /> Tieu thu: {{ Energy_device4 }}<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device4 }}</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -591,7 +617,7 @@
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
                   </p>
-                  <p class="grey" name="namedv4">{{ namedv4 }}</p>
+                  <p class="white" name="namedv4">{{ namedv4 }}</p>
                 </div>
               </div>
               <div class="card2">
@@ -603,14 +629,14 @@
                       alt=""
                       class="icon-img"/> -->
                       <label class="switch">
-                        <input type="checkbox" name="toggle5" value="true" {% if toggles5 %}checked{% endif %} onchange="autoSubmitToggle(this)">
+                        <input type="checkbox" name="toggle5" value=True {% if toggles5 %}checked{% endif %} onchange="autoSubmitToggle(this)">
                         <span class="slider round"></span>
 
                 </div>
                 <div class="card-bot">
                   <div class="card-left">
-                    <p class="p-20 white"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                    /> Tieu thu: 230kWh</p>
+                    <p class="p-20 white" name = "Energy_device5"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
+                    /> Tieu thu: {{ Energy_device5 }}<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device5 }}</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -624,7 +650,7 @@
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
                   </p>
-                  <p class="grey" name = "namedv5">{{ namedv5 }}</p>
+                  <p class="white" name = "namedv5">{{ namedv5 }}</p>
                 </div>
               </div>
             </div>
@@ -658,7 +684,7 @@
                     />
                     <div class="energy-heading" >
                       <h4 name = "capacity">{{ capacity }}</h4>
-                      <h2>kW</h2>
+                      <h2>Wh</h2>
                     </div>
                   </div>
                   <div class="energy-bot">

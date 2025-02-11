@@ -30,12 +30,12 @@ config = {
     'projectId': "iot-smart-home-a7c95",
     'storageBucket': "iot-smart-home-a7c95.appspot.com",
     'messagingSenderId': "327764472304",
-    'appId': "1:327764472304:web:74cc73510c2b07e3686d35",
-    'measurementId': "G-QSPT43DZY1"
+    'appId': "1:327764472304:web:9a54ddafe8094f88686d35",
+    'measurementId': "G-3YJXZXNBEV"
 }
 
 
-cred = credentials.Certificate("static/iot-smart-home-a7c95-firebase-adminsdk-3ky17-9bdd30ab30.json")
+cred = credentials.Certificate("static/iot-smart-home-a7c95-firebase-adminsdk-3ky17-f1b7fd681d.json")
 firebase_admin.initialize_app(cred, {
     'databaseURL': "https://iot-smart-home-a7c95-default-rtdb.asia-southeast1.firebasedatabase.app/"
 })
@@ -187,20 +187,34 @@ def dashboard(request):
     # Tìm user dựa trên email đăng nhập
     humidity = 0
     temperature = 0
-    Total_Energy_Use = 0
-    toggle_state0 = False
-    toggle_state1 = False
-    toggle_state2 = False
-    toggle_state3 = False
-    toggle_state4 = False
-    toggle_state5 = False
+    total_energy_use = 0
+    toggle_state0 = True
+    toggle_state1 = True
+    toggle_state2 = True
+    toggle_state3 = True
+    toggle_state4 = True
+    toggle_state5 = True
     
-    toggle_status0 = "false"
-    toggle_status1 = "false"
-    toggle_status2 = "false"
-    toggle_status3 = "false"
-    toggle_status4 = "false"
-    toggle_status5 = "false"
+    power_device0 = 0.0
+    power_device1 = 0.0
+    power_device2 = 0.0
+    power_device3 = 0.0
+    power_device4 = 0.0
+    power_device5 = 0.0
+    
+    Energy_device0 = 0.0
+    Energy_device1 = 0.0
+    Energy_device2 = 0.0
+    Energy_device3 = 0.0
+    Energy_device4 = 0.0
+    Energy_device5 = 0.0
+    
+    # toggle_status0 = "false"
+    # toggle_status1 = "false"
+    # toggle_status2 = "false"
+    # toggle_status3 = "false"
+    # toggle_status4 = "false"
+    # toggle_status5 = "false"
     
     name_device0 = ""
     name_device1 = ""
@@ -208,7 +222,77 @@ def dashboard(request):
     name_device3 = ""
     name_device4 = ""
     name_device5 = ""
-    
+    if users_data:
+        for user_id, user_info in users_data.items():
+            if user_info.get("email") == email:
+                
+                devices = user_info.get("device", [])  # Lấy danh sách thiết bị
+                # Đảm bảo có đủ thiết bị trước khi truy cập chỉ mục
+                toggle_state0 = devices[0].get('status', 'N/A') if len(devices) > 0 else 'N/A'
+                toggle_state1 = devices[1].get('status', 'N/A') if len(devices) > 1 else 'N/A'
+                toggle_state2 = devices[2].get('status', 'N/A') if len(devices) > 2 else 'N/A'
+                toggle_state3 = devices[3].get('status', 'N/A') if len(devices) > 3 else 'N/A'
+                toggle_state4 = devices[4].get('status', 'N/A') if len(devices) > 4 else 'N/A'
+                toggle_state5 = devices[5].get('status', 'N/A') if len(devices) > 5 else 'N/A'
+                for device in devices:
+                    print(f"Device ID: {device.get('id')}, Name: {device.get('name')}, Status: {device.get('status')}, Power: {device.get('power')}, EnergyConsumption: {device.get('energyConsumption')}")
+                try:
+                    name_device0 = devices[0]['name']
+                    power_device0 = devices[0].get('power')
+                    Energy_device0 = devices[0].get('energyConsumption')
+                except:
+                    name_device0 = "Chua duoc them vao"
+                try:
+                    name_device1 = devices[1]['name']
+                    power_device1 = devices[1].get('power')
+                    Energy_device1 = devices[1].get('energyConsumption')
+                except:
+                    name_device1 = "Chua duoc them vao"
+                try:
+                    name_device2 = devices[2]['name']
+                    power_device2 = devices[2].get('power')
+                    Energy_device2 = devices[2].get('energyConsumption')
+                except:
+                    name_device2 = "Chua duoc them vao"
+                try:
+                    name_device3 = devices[3]['name']
+                    power_device3 = devices[3].get('power')
+                    Energy_device3 = devices[3].get('energyConsumption')
+                except:
+                    name_device3 = "Chua duoc them vao"
+                try:
+                    name_device4 = devices[4]['name']
+                    power_device4 = devices[4].get('power')
+                    Energy_device4 = devices[4].get('energyConsumption')
+                except:
+                    name_device4 = "Chua duoc them vao"
+                try:
+                    name_device5 = devices[5]['name']
+                    power_device5 = devices[5].get('power')
+                    Energy_device5 = devices[5].get('energyConsumption')
+                except:
+                    name_device5 = "Chua duoc them vao"
+            
+
+            dht11_data = user_info.get("DHT11", {})
+            if dht11_data:
+                humidity = dht11_data.get('doam', 'N/A')
+                temperature = dht11_data.get('nhietdo', 'N/A')
+                print(f"DHT11 - Do am: {humidity}")
+                print(f"DHT11 - Nhiet do: {temperature}")
+
+            # Truy xuất thông tin công suất tiêu thụ
+            power_consumption = user_info.get("capacity", {})
+            if power_consumption:
+                total_energy_use = power_consumption.get('CongSuatTieuThu', 'N/A')
+                print(f"Công suất tiêu thụ: {total_energy_use}")
+                
+            # devices = user_info.get("device", {})
+            # for device in devices:
+            #     print(f"Device ID: {device.get('id')}, Name: {device.get('name')}, Status: {device.get('status')}")
+            
+            
+                
     if request.method == "POST":
         # Cập nhật trạng thái toggle
         toggle_state0 = request.POST.get("toggle0")
@@ -225,18 +309,18 @@ def dashboard(request):
                     print(f"Name: {user_info.get('name')}")
                     print(f"Phone: {user_info.get('phone')}")
                     # Truy xuất thông tin DHT11
-                    dht11_data = user_info.get("DHT11", {})
-                    if dht11_data:
-                        humidity = dht11_data.get('doam', 'N/A')
-                        temperature = dht11_data.get('nhietdo', 'N/A')
-                        print(f"DHT11 - Do am: {humidity}")
-                        print(f"DHT11 - Nhiet do: {temperature}")
+                    # dht11_data = user_info.get("DHT11", {})
+                    # if dht11_data:
+                    #     humidity = dht11_data.get('doam', 'N/A')
+                    #     temperature = dht11_data.get('nhietdo', 'N/A')
+                    #     print(f"DHT11 - Do am: {humidity}")
+                    #     print(f"DHT11 - Nhiet do: {temperature}")
 
-                    # Truy xuất thông tin công suất tiêu thụ
-                    power_consumption = user_info.get("capacity", {})
-                    if power_consumption:
-                        Total_Energy_Use = power_consumption.get('CongSuatTieuThu', 'N/A')
-                        print(f"Công suất tiêu thụ: {Total_Energy_Use}")
+                    # # Truy xuất thông tin công suất tiêu thụ
+                    # power_consumption = user_info.get("capacity", {})
+                    # if power_consumption:
+                    #     total_energy_use = power_consumption.get('CongSuatTieuThu', 'N/A')
+                    #     print(f"Công suất tiêu thụ: {total_energy_use}")
 
                     # Truy xuất thông tin thiết bị
                     devices = user_info.get("device", [])
@@ -268,19 +352,19 @@ def dashboard(request):
                     except:
                         name_device5 = "Chua duoc them vao"
                     
-                    print(name_device0)
-                    print(name_device1)
-                    print(name_device2)
-                    print(name_device3)
-                    print(name_device4)
-                    print(name_device5)
+                    # print(name_device0)
+                    # print(name_device1)
+                    # print(name_device2)
+                    # print(name_device3)
+                    # print(name_device4)
+                    # print(name_device5)
                     
                     if name_device0 != "Chua duoc them vao":
                         if toggle_state0 is None:
-                            toggle_status0 = "false"
+                            toggle_status0 = False
                             device_ref = users_ref.child(user_id).child("device").child("0")
                             device_ref.update({
-                                "status": toggle_status0
+                                "status": bool(toggle_status0)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("0").update({"status": toggle_status0})
@@ -288,16 +372,16 @@ def dashboard(request):
                             toggle_status0 = toggle_state0
                             device_ref = users_ref.child(user_id).child("device").child("0")
                             device_ref.update({
-                                "status": toggle_status0
+                                "status": bool(toggle_status0)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("0").update({"status": toggle_status0})
                     if name_device1 != "Chua duoc them vao":
                         if toggle_state1 is None:
-                            toggle_status1 = "false"
+                            toggle_status1 = False
                             device_ref = users_ref.child(user_id).child("device").child("1")
                             device_ref.update({
-                                "status": toggle_status1
+                                "status": bool(toggle_status1)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("1").update({"status": toggle_status1})
@@ -305,16 +389,16 @@ def dashboard(request):
                             toggle_status1 = toggle_state1
                             device_ref = users_ref.child(user_id).child("device").child("1")
                             device_ref.update({
-                                "status": toggle_status1
+                                "status": bool(toggle_status1)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("1").update({"status": toggle_status1})
                     if name_device2 != "Chua duoc them vao":
                         if toggle_state2 is None:
-                            toggle_status2 = "false"
+                            toggle_status2 = False
                             device_ref = users_ref.child(user_id).child("device").child("2")
                             device_ref.update({
-                                "status": toggle_status2
+                                "status": bool(toggle_status2)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("2").update({"status": toggle_status2})
@@ -322,16 +406,16 @@ def dashboard(request):
                             toggle_status2 = toggle_state2
                             device_ref = users_ref.child(user_id).child("device").child("2")
                             device_ref.update({
-                                "status": toggle_status2
+                                "status": bool(toggle_status2)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("2").update({"status": toggle_status2})
                     if name_device3 != "Chua duoc them vao":
                         if toggle_state3 is None:
-                            toggle_status3 = "false"
+                            toggle_status3 = False
                             device_ref = users_ref.child(user_id).child("device").child("3")
                             device_ref.update({
-                                "status": toggle_status3
+                                "status": bool(toggle_status3)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("3").update({"status": toggle_status3})
@@ -339,16 +423,16 @@ def dashboard(request):
                             toggle_status3 = toggle_state3
                             device_ref = users_ref.child(user_id).child("device").child("3")
                             device_ref.update({
-                                "status": toggle_status3
+                                "status": bool(toggle_status3)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("3").update({"status": toggle_status3})
                     if name_device4 != "Chua duoc them vao":
                         if toggle_state4 is None:
-                            toggle_status4 = "false"
+                            toggle_status4 = False
                             device_ref = users_ref.child(user_id).child("device").child("4")
                             device_ref.update({
-                                "status": toggle_status4
+                                "status": bool(toggle_status4)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("4").update({"status": toggle_status4})
@@ -356,16 +440,16 @@ def dashboard(request):
                             toggle_status4 = toggle_state4
                             device_ref = users_ref.child(user_id).child("device").child("4")
                             device_ref.update({
-                                "status": toggle_status4
+                                "status": bool(toggle_status4)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("4").update({"status": toggle_status4})
                     if name_device5 != "Chua duoc them vao":
                         if toggle_state5 is None:
-                            toggle_status5 = "false"
+                            toggle_status5 = False
                             device_ref = users_ref.child(user_id).child("device").child("5")
                             device_ref.update({
-                                "status": toggle_status5
+                                "status": bool(toggle_status5)
                             })
                             # user_ref = DataBase.child("Users").child(user.key())
                             # user_ref.child("device").child("5").update({"status": toggle_status5})
@@ -373,7 +457,7 @@ def dashboard(request):
                             toggle_status5 = toggle_state5
                             device_ref = users_ref.child(user_id).child("device").child("5")
                             device_ref.update({
-                                "status": toggle_status5
+                                "status": bool(toggle_status5)
                             })
                     print("toggle0: ", toggle_status0)
                     print("toggle1: ", toggle_status1)
@@ -426,14 +510,27 @@ def dashboard(request):
     
         
     return render(request, "dashboard2.html", {
+                    'hum': humidity,
                     'temp': temperature,
-                    'capacity': Total_Energy_Use,
+                    'capacity': total_energy_use,
                     'namedv0': name_device0,
                     'namedv1': name_device1,
                     'namedv2': name_device2,
                     'namedv3': name_device3,
                     'namedv4': name_device4,
                     'namedv5': name_device5,
+                    'power_device0' : power_device0,
+                    'Energy_device0': Energy_device0,
+                    'power_device1' : power_device1,
+                    'Energy_device1': Energy_device1,
+                    'power_device2' : power_device2,
+                    'Energy_device2': Energy_device2,
+                    'power_device3' : power_device3,
+                    'Energy_device3': Energy_device3,
+                    'power_device4' : power_device4,
+                    'Energy_device4': Energy_device4,
+                    'power_device5' : power_device5,
+                    'Energy_device5': Energy_device5,
                     'toggles0': toggle_state0,
                     'toggles1': toggle_state1,
                     'toggles2': toggle_state2,
