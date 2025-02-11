@@ -1,0 +1,31 @@
+Change Component Footprint: Designator=D3 Old Footprint=1N4007 New Footprint=D_SMA
+Change Component Footprint: Designator=D4 Old Footprint=1N4007 New Footprint=D_SMA
+Change Component Footprint: Designator=D5 Old Footprint=1N4007 New Footprint=D_SMA
+Change Component Comment : Designator=D5 Old Comment=M7 New Comment=1N4007
+Change component parameters: Designator = "D3" ("D3"); Footprint = "1N4007"; UniqueID = "\HXHGNDVC" ("\HXHGNDVC")
+Change component parameters (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF"; Value = "Kingtronics"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF_P#"; Value = "M7"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM"; Value = "1000V VRRM"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM2"; Value = "1A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = "1N4007"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D4" ("D4"); Footprint = "1N4007"; UniqueID = "\MMYBVOYA" ("\MMYBVOYA")
+Change component parameters (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF"; Value = "Kingtronics"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF_P#"; Value = "M7"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM"; Value = "1000V VRRM"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM2"; Value = "1A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = "1N4007"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D5" ("D5"); Footprint = "1N4007"; UniqueID = "\KLZELVOH" ("\KLZELVOH")
+Change component parameters (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF"; Value = "Kingtronics"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF_P#"; Value = "M7"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM"; Value = "1000V VRRM"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM2"; Value = "1A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = "1N4007"; VariantName = "[No Variations]"

@@ -1,0 +1,26 @@
+Added Component: Designator=D6(LED0805)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "MANF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "MANF_PART#"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "2.2V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "LED0805"; VariantName = "[No Variations]"
+Added Component: Designator=R17(R0805)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DIST#"; Value = "MOUSER"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "VISHAY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "WSLP0805R0100FEA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "0.5W, -55~155oC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "0.5$"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "1.8K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=D6-2
+Added Pin To Net: NetName=+12V Pin=R17-2
+Added Pin To Net: NetName=NetD6_1 Pin=D6-1
+Added Pin To Net: NetName=NetD6_1 Pin=R17-1
+Added Net: Name=NetD6_1
+Added Member To Class: ClassName=SCH_Project_Final Member=Component D6 LED0805
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R17 1.8K

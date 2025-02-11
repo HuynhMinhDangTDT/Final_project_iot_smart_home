@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=VIOUT2 Pin=U4-5
+Removed Pin From Net: NetName=VIOUT1 Pin=U4-38
+Added Pin To Net: NetName=VIOUT1 Pin=U4-5
+Added Pin To Net: NetName=VIOUT2 Pin=U4-38

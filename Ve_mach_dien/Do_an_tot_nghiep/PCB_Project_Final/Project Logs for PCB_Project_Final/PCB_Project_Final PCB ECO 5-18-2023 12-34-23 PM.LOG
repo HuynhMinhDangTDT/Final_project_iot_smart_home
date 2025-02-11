@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=CONFIG Pin=CONFIG1-1
+Removed Pin From Net: NetName=CONFIG Pin=CONFIG1-4
+Removed Pin From Net: NetName=CONFIG Pin=R4-2
+Removed Pin From Net: NetName=CONFIG Pin=RESET1-1
+Removed Pin From Net: NetName=ERST Pin=RESET1-2
+Removed Pin From Net: NetName=ERST Pin=RESET1-3
+Removed Pin From Net: NetName=CONFIG Pin=RESET1-4
+Removed Pin From Net: NetName=CONFIG Pin=U2-6
+Added Pin To Net: NetName=ERST Pin=RESET1-1
+Added Pin To Net: NetName=CONFIG Pin=RESET1-2
+Added Pin To Net: NetName=CONFIG Pin=RESET1-3
+Added Pin To Net: NetName=ERST Pin=RESET1-4
+Change Net Name : Old Net Name=CONFIG New Net Name=GND
+Added Pin To Net: NetName=CONFIG Pin=CONFIG1-1
+Added Pin To Net: NetName=CONFIG Pin=CONFIG1-4
+Added Pin To Net: NetName=CONFIG Pin=R4-2
+Added Pin To Net: NetName=CONFIG Pin=U2-6
+Added Net: Name=CONFIG
+Added Room: Name=SCH_Project_Final

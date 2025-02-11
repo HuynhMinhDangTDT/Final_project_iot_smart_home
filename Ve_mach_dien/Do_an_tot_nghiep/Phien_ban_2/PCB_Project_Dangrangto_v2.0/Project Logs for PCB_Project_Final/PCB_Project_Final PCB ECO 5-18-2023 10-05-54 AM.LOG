@@ -1,0 +1,150 @@
+Removed Pin From Net: NetName=NetC1_2 Pin=C2-1
+Removed Pin From Net: NetName=+12V Pin=C2-2
+Removed Pin From Net: NetName=GND Pin=C3-1
+Removed Pin From Net: NetName=NetC4_1 Pin=C5-1
+Removed Pin From Net: NetName=GND Pin=C5-2
+Removed Pin From Net: NetName=NetC4_1 Pin=C6-1
+Removed Pin From Net: NetName=GND Pin=C6-2
+Removed Pin From Net: NetName=GND Pin=C7-1
+Removed Pin From Net: NetName=NetC4_1 Pin=C7-2
+Removed Pin From Net: NetName=3V3 Pin=Q2-1
+Removed Pin From Net: NetName=5V ISOLATE Pin=Q3-1
+Removed Pin From Net: NetName=3V3 Pin=R14-1
+Removed Pin From Net: NetName=5V ISOLATE Pin=R15-1
+Removed Pin From Net: NetName=3V3 Pin=R17-2
+Removed Pin From Net: NetName=5V ISOLATE Pin=R18-2
+Removed Pin From Net: NetName=NetC4_1 Pin=U1-4
+Removed Member From Class: ClassName=SCH_Project_Final Member=C17
+Removed Member From Class: ClassName=SCH_Project_Final Member=C18
+Change Component Footprint: Designator=D1 Old Footprint=DO-214AC New Footprint=DIODE_SMD
+Change Component Footprint: Designator=L1 Old Footprint=INDC_ICPFC74NP-PS01H2A30 New Footprint=INDC_FL2D-10-472
+Change Component Footprint: Designator=C5 Old Footprint=tu nhom 6.3 (d) New Footprint=cap_0805
+Change Component Footprint: Designator=C4 Old Footprint=tu nhom 6.3 (d) New Footprint=CAP_SMD_L=7.7
+Change Component Comment : Designator=C5 Old Comment=220uF New Comment=0.1uF
+Change Component Comment : Designator=C4 Old Comment=220uF New Comment=220uF/25V
+Change Component Comment : Designator=L1 Old Comment=IND_CPFC74-PS01H2A30 New Comment=FL2D-10-472
+Change Component Comment : Designator=D1 Old Comment=SSA34HE3_A/I New Comment=1N5822
+Change Component Designator: OldDesignator=C8 NewDesignator=C6
+Change Component Designator: OldDesignator=C9 NewDesignator=C7
+Change Component Designator: OldDesignator=C10 NewDesignator=C8
+Change Component Designator: OldDesignator=C11 NewDesignator=C9
+Change Component Designator: OldDesignator=C12 NewDesignator=C10
+Change Component Designator: OldDesignator=C13 NewDesignator=C11
+Change Component Designator: OldDesignator=C17 NewDesignator=C12
+Change Component Designator: OldDesignator=C18 NewDesignator=C13
+Change Component Designator: OldDesignator=C19 NewDesignator=C14
+Change Component Designator: OldDesignator=R1 NewDesignator=R2
+Change Component Designator: OldDesignator=R2 NewDesignator=R5
+Change Component Designator: OldDesignator=R3 NewDesignator=R6
+Change Component Designator: OldDesignator=R4 NewDesignator=R7
+Change Component Designator: OldDesignator=R5 NewDesignator=R8
+Change Component Designator: OldDesignator=R6 NewDesignator=R9
+Change Component Designator: OldDesignator=R7 NewDesignator=R10
+Change Component Designator: OldDesignator=U5 NewDesignator=U4
+Change Component Designator: OldDesignator=U6 NewDesignator=U5
+Change Component Designator: OldDesignator=U7 NewDesignator=U6
+Change component parameters: Designator = "C5" ("C5"); Footprint = "tu nhom 6.3 (d)"; UniqueID = "\AOXMHKMA" ("\AOXMHKMA")
+Change component parameters (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DIST#"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF"; Value = "-"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF_P#"; Value = "MANF_PART#"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM"; Value = "-, -%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM2"; Value = "-V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PRICE"; Value = "100= 1$"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = "0.1uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "L1" ("L1"); Footprint = "INDC_ICPFC74NP-PS01H2A30"; UniqueID = "\JSQBYHRZ" ("\JSQBYHRZ")
+Change component parameters: Designator = "C4" ("C4"); Footprint = "tu nhom 6.3 (d)"; UniqueID = "\JTSCWCST" ("\JTSCWCST")
+Change component parameters (AddParameter): Name = "Applications"; Value = "General Purpose"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Capacitance"; Value = "100µF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Category"; Value = "Capacitors"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+ABA0012+ECA1HM101B+7+WW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+ABA0012+ECA1HM101B+7+WW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ESR (Equivalent Series Resistance)"; Value = "-"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height - Seated (Max)"; Value = "0.492" (12.50mm)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Impedance"; Value = "-"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lead Spacing"; Value = "0.197" (5.00mm)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lifetime @ Temp."; Value = "2000 Hrs @ 85°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic Electronic Components"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "ECA-1HM101B"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Type"; Value = "Through Hole"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Operating Temperature"; Value = "-40°C ~ 85°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package / Case"; Value = "Radial, Can"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Tape & Box (TB)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ripple Current"; Value = "250mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RoHS"; Value = "RoHS Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Size / Dimension"; Value = "0.315" Dia (8.00mm)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Future Electronics"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "1586585"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Surface Mount Land Size"; Value = "-"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "±20%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "-"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage Rating"; Value = "50V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D1" ("D1"); Footprint = "DO-214AC"; UniqueID = "\IQBLGODC" ("\IQBLGODC")
+Change component parameters (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF"; Value = "DIODES"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF_P#"; Value = "1N5822"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM"; Value = "40V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM2"; Value = "3A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PRICE"; Value = "PRICE"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = "1N5822"; VariantName = "[No Variations]"
+Added Component: Designator=R1(R0805)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DIST#"; Value = "MOUSER"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "VISHAY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "WSLP0805R0100FEA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "0.5W, -55~155oC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "0.5$"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "350R"; VariantName = "[No Variations]"
+Added Component: Designator=R3(R0805)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DIST#"; Value = "MOUSER"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "VISHAY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "WSLP0805R0100FEA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "0.5W, -55~155oC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "0.5$"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R4(R0805)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DIST#"; Value = "MOUSER"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "VISHAY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "WSLP0805R0100FEA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = "0.5W, -55~155oC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "0.5$"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "100R"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=NetC1_2 Pin=C3-1
+Added Pin To Net: NetName=+12V Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=NetC4_1 Pin=C5-2
+Added Pin To Net: NetName=NetQ2_1 Pin=Q2-1
+Added Pin To Net: NetName=NetQ3_1 Pin=Q3-1
+Added Pin To Net: NetName=GND Pin=R1-2
+Added Pin To Net: NetName=NetC4_1 Pin=R4-2
+Added Pin To Net: NetName=NetQ2_1 Pin=R14-1
+Added Pin To Net: NetName=NetQ3_1 Pin=R15-1
+Added Pin To Net: NetName=NetQ2_1 Pin=R17-2
+Added Pin To Net: NetName=NetQ3_1 Pin=R18-2
+Change Net Name : Old Net Name=NetR4_2 New Net Name=NetR7_2
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=NetC2_2 Pin=L1-3
+Added Pin To Net: NetName=NetC2_2 Pin=U1-1
+Added Net: Name=NetC2_2
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=NetR1_1 Pin=R3-1
+Added Pin To Net: NetName=NetR1_1 Pin=U1-4
+Added Net: Name=NetR1_1
+Added Pin To Net: NetName=NetR3_2 Pin=R3-2
+Added Pin To Net: NetName=NetR3_2 Pin=R4-1
+Added Net: Name=NetR3_2
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R8 4.7k
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R9 1K
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R10 10K
+Added Room: Name=SCH_Project_Final

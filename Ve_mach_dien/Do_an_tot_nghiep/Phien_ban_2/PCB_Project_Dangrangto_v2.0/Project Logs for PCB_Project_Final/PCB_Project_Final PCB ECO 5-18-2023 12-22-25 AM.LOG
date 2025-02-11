@@ -1,0 +1,8 @@
+Change Component Comment : Designator=D5 Old Comment=1N4007 New Comment=M7
+Change component parameters: Designator = "D5" ("D5"); Footprint = "1N4007"; UniqueID = "\YXZDXIXL" ("\YXZDXIXL")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ghi_Chu"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH000944"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "Diode M7 1N4007 SMD 1A 1000V"; VariantName = "[No Variations]"

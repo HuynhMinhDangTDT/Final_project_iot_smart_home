@@ -1,0 +1,12 @@
+Added Component: Designator=R54(tro smd 0603)
+Add component (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ma_Hang"; Value = "10K"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ten_Linh_Kien"; Value = "Tr? 0603 5% 10k"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=R54-2
+Added Pin To Net: NetName=NetR54_1 Pin=R54-1
+Added Pin To Net: NetName=NetR54_1 Pin=US1-11
+Added Net: Name=NetR54_1
+Added Member To Class: ClassName=MCU_ESP32_S3 Member=Component R54 10K_0603_1%

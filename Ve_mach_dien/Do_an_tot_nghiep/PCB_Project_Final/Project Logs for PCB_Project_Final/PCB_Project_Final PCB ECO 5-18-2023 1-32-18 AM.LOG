@@ -1,0 +1,52 @@
+Removed Pin From Net: NetName=NetC14_1 Pin=C14-1
+Removed Pin From Net: NetName=5V ISOLATE Pin=C14-2
+Removed Pin From Net: NetName=NetC15_1 Pin=C15-1
+Removed Pin From Net: NetName=5V ISOLATE Pin=C15-2
+Removed Pin From Net: NetName=NetC16_1 Pin=C16-1
+Removed Pin From Net: NetName=5V ISOLATE Pin=C16-2
+Removed Pin From Net: NetName=NetC14_1 Pin=LED2-2
+Removed Pin From Net: NetName=NetC15_1 Pin=LED3-2
+Removed Pin From Net: NetName=NetC16_1 Pin=LED4-2
+Removed Pin From Net: NetName=NetLED2_1 Pin=R8-1
+Removed Pin From Net: NetName=5V ISOLATE Pin=R8-2
+Removed Pin From Net: NetName=NetLED3_1 Pin=R9-1
+Removed Pin From Net: NetName=5V ISOLATE Pin=R9-2
+Removed Pin From Net: NetName=NetLED4_1 Pin=R10-1
+Removed Pin From Net: NetName=5V ISOLATE Pin=R10-2
+Removed Pin From Net: NetName=RL2 Pin=R11-2
+Removed Pin From Net: NetName=RL3 Pin=R12-2
+Removed Pin From Net: NetName=RL1 Pin=R13-2
+Removed Pin From Net: NetName=5V Pin=U5-1
+Removed Pin From Net: NetName=NetR11_1 Pin=U5-2
+Removed Pin From Net: NetName=5V Pin=U6-1
+Removed Pin From Net: NetName=NetR12_1 Pin=U6-2
+Removed Pin From Net: NetName=5V Pin=U7-1
+Removed Pin From Net: NetName=NetR13_1 Pin=U7-2
+Removed Member From Class: ClassName=SCH_Project_Final Member=C14
+Removed Member From Class: ClassName=SCH_Project_Final Member=C15
+Removed Member From Class: ClassName=SCH_Project_Final Member=C16
+Removed Member From Class: ClassName=SCH_Project_Final Member=R8
+Removed Member From Class: ClassName=SCH_Project_Final Member=R9
+Removed Member From Class: ClassName=SCH_Project_Final Member=R10
+Added Pin To Net: NetName=RL2 Pin=LED2-2
+Added Pin To Net: NetName=RL3 Pin=LED3-2
+Added Pin To Net: NetName=RL1 Pin=LED4-2
+Added Pin To Net: NetName=NetQ2_1 Pin=Q2-1
+Added Pin To Net: NetName=NetQ3_1 Pin=Q3-1
+Added Pin To Net: NetName=5V Pin=R11-2
+Added Pin To Net: NetName=5V Pin=R12-2
+Added Pin To Net: NetName=5V Pin=R13-2
+Added Pin To Net: NetName=NetQ2_1 Pin=R14-1
+Added Pin To Net: NetName=NetQ3_1 Pin=R15-1
+Added Pin To Net: NetName=NetQ2_1 Pin=R17-2
+Added Pin To Net: NetName=NetQ3_1 Pin=R18-2
+Added Pin To Net: NetName=NetR11_1 Pin=U5-1
+Added Pin To Net: NetName=NetLED2_1 Pin=U5-2
+Added Pin To Net: NetName=NetR12_1 Pin=U6-1
+Added Pin To Net: NetName=NetLED3_1 Pin=U6-2
+Added Pin To Net: NetName=NetR13_1 Pin=U7-1
+Added Pin To Net: NetName=NetLED4_1 Pin=U7-2
+Change Net Name : Old Net Name=NetC14_1 New Net Name=NetD3_1
+Change Net Name : Old Net Name=NetC15_1 New Net Name=NetD4_1
+Change Net Name : Old Net Name=NetC16_1 New Net Name=NetD5_1
+Added Room: Name=SCH_Project_Final

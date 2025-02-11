@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=M1 Old Footprint=SCMH_M4 New Footprint=SCMH_M3FT
+Change Component Footprint: Designator=M2 Old Footprint=SCMH_M4 New Footprint=SCMH_M3FT
+Change Component Footprint: Designator=M3 Old Footprint=SCMH_M4 New Footprint=SCMH_M3FT
+Change Component Footprint: Designator=M4 Old Footprint=SCMH_M4 New Footprint=SCMH_M3FT
+Added Member To Class: ClassName=Power Member=Component C6 4.7uF_1206_1%

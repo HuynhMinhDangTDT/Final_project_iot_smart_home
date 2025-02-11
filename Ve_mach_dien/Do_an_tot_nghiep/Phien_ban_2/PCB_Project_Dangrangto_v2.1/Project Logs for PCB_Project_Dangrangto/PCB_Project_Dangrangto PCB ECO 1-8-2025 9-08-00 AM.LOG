@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=3V3 Pin=J13-3
+Removed Pin From Net: NetName=GND Pin=J13-4
+Removed Pin From Net: NetName=3V3 Pin=J14-3
+Removed Pin From Net: NetName=GND Pin=J14-4
+Change Component Footprint: Designator=J13 Old Footprint=HDR_F_1X4 New Footprint=HDR_M_1X3
+Change Component Footprint: Designator=J14 Old Footprint=HDR_F_1X4 New Footprint=HDR_M_1X3
+Change Component Comment : Designator=J13 Old Comment=HDRF4 New Comment=HDRM3
+Change Component Comment : Designator=J14 Old Comment=HDRF4 New Comment=HDRM3
+Change component parameters: Designator = "J13" ("J13"); Footprint = "HDR_F_1X4"; UniqueID = "\SRSQMOEN" ("\SRSQMOEN")
+Change component parameters (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF_P#"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = "HDRM3"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J14" ("J14"); Footprint = "HDR_F_1X4"; UniqueID = "\VYJYDZGJ" ("\VYJYDZGJ")
+Change component parameters (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MANF_P#"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = "HDRM3"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3V3 Pin=J13-2
+Added Pin To Net: NetName=GND Pin=J13-3
+Added Pin To Net: NetName=3V3 Pin=J14-2
+Added Pin To Net: NetName=GND Pin=J14-3

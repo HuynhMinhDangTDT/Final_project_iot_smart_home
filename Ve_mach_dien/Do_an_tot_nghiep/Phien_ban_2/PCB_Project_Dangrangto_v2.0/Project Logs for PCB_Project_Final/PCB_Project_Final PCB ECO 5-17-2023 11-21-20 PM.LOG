@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=COM3 Pin=C17-1
+Removed Pin From Net: NetName=NO3 Pin=C17-2
+Removed Pin From Net: NetName=COM2 Pin=C19-1
+Removed Pin From Net: NetName=NO2 Pin=C19-2
+Added Pin To Net: NetName=COM2 Pin=C17-1
+Added Pin To Net: NetName=NO2 Pin=C17-2
+Added Pin To Net: NetName=COM1 Pin=C19-1
+Added Pin To Net: NetName=NO1 Pin=C19-2

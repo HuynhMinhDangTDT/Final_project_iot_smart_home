@@ -1,0 +1,29 @@
+Added Component: Designator=J7(JP2)
+Add component (AddParameter): Name = "Value"; Value = "JP 2"; VariantName = "[No Variations]"
+Added Component: Designator=J8(JP2)
+Add component (AddParameter): Name = "Value"; Value = "JP 2"; VariantName = "[No Variations]"
+Added Component: Designator=LED5(LED5R)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "D:\Dropbox\Datasheets\Opto and Illumination\LEDs\SMD LED.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Unit Price"; Value = "0.0476"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Red"; VariantName = "[No Variations]"
+Added Component: Designator=LED6(LED5R)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "D:\Dropbox\Datasheets\Opto and Illumination\LEDs\SMD LED.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Unit Price"; Value = "0.0476"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Red"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=TX2 Pin=J7-2
+Added Pin To Net: NetName=RX2 Pin=J8-2
+Added Pin To Net: NetName=GND Pin=LED5-2
+Added Pin To Net: NetName=GND Pin=LED6-2
+Added Pin To Net: NetName=NetJ7_1 Pin=J7-1
+Added Pin To Net: NetName=NetJ7_1 Pin=LED5-1
+Added Net: Name=NetJ7_1
+Added Pin To Net: NetName=NetJ8_1 Pin=J8-1
+Added Pin To Net: NetName=NetJ8_1 Pin=LED6-1
+Added Net: Name=NetJ8_1
+Added Member To Class: ClassName=SCH_Project_Final Member=Component J7 Jumper 2
+Added Member To Class: ClassName=SCH_Project_Final Member=Component J8 Jumper 2
+Added Member To Class: ClassName=SCH_Project_Final Member=Component LED5 LED_R_3
+Added Member To Class: ClassName=SCH_Project_Final Member=Component LED6 LED_R_3
+Added Room: Name=SCH_Project_Final

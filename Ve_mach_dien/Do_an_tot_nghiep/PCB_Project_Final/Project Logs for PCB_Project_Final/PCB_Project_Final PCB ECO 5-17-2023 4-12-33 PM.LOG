@@ -1,0 +1,6 @@
+Added Component: Designator=B1(B0505S_DC/DC_1W)
+Added Pin To Net: NetName=GND Pin=B1-1
+Added Pin To Net: NetName=NetB1_2 Pin=B1-2
+Added Pin To Net: NetName=GND ISOLATE Pin=B1-3
+Added Pin To Net: NetName=5V ISOLATE Pin=B1-4
+Added Member To Class: ClassName=SCH_Project_Final Member=Component B1 B0505_DC/DC_1W

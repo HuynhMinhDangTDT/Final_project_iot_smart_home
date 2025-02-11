@@ -1,0 +1,30 @@
+Change Component Footprint: Designator=C2 Old Footprint=tu hoa 4mm New Footprint=tu hoa 6.5mm
+Change Component Comment : Designator=C2 Old Comment=10uF/25V New Comment=100uF/35V
+Change component parameters: Designator = "C2" ("C2"); Footprint = "tu hoa 4mm"; UniqueID = "\WCLAUJPM" ("\WCLAUJPM")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "C?m"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH001360"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? Hóa 47uF 50V"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C3 0.1 uF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C4 10uF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C8 100uF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C9 100nF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C12 10uF/16V
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C14 100nF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C16 470nF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C17 470nF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C18 470nF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component D3 LED805BLU
+Added Member To Class: ClassName=SCH_Project_Final Member=Component D5 1N4007
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R1 1.8K
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R3 1K
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R6 10K
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R7 1K
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R9 1k
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R11 1k
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R13 1k
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R15 1k
+Added Member To Class: ClassName=SCH_Project_Final Member=Component R17 1k
+Added Room: Name=SCH_Project_Final

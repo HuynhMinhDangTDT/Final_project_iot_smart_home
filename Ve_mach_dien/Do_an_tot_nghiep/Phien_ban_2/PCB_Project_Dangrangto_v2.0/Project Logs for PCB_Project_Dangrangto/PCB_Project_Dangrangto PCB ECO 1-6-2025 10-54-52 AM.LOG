@@ -1,0 +1,34 @@
+Added Component: Designator=J8(MSTB_9)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DIST#"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "CONN_TB9"; VariantName = "[No Variations]"
+Added Component: Designator=J9(MSTB_3)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DIST#"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "CONN_TB3"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=COM1 Pin=J8-1
+Added Pin To Net: NetName=NO1 Pin=J8-2
+Added Pin To Net: NetName=COM2 Pin=J8-3
+Added Pin To Net: NetName=NO2 Pin=J8-4
+Added Pin To Net: NetName=COM3 Pin=J8-5
+Added Pin To Net: NetName=NO3 Pin=J8-6
+Added Pin To Net: NetName=COM4 Pin=J8-7
+Added Pin To Net: NetName=NO4 Pin=J8-8
+Added Pin To Net: NetName=COM5 Pin=J8-9
+Added Pin To Net: NetName=NO5 Pin=J9-1
+Added Pin To Net: NetName=COM6 Pin=J9-2
+Added Pin To Net: NetName=NO6 Pin=J9-3
+Added Member To Class: ClassName=OUTPUT_RELAY Member=Component J8 CONN_TB9
+Added Member To Class: ClassName=OUTPUT_RELAY Member=Component J9 CONN_TB3

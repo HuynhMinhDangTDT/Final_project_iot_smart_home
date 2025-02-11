@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=IN_BUZZER Pin=U4-20
+Removed Pin From Net: NetName=IN_RL1 Pin=U4-21
+Removed Pin From Net: NetName=IN_RL2 Pin=U4-22
+Removed Pin From Net: NetName=IN_RL5 Pin=U4-23
+Removed Pin From Net: NetName=IN_RL6 Pin=U4-31
+Added Pin To Net: NetName=IN_RL1 Pin=U4-18
+Added Pin To Net: NetName=IN_RL2 Pin=U4-19
+Added Pin To Net: NetName=IN_RL3 Pin=U4-20
+Added Pin To Net: NetName=IN_RL4 Pin=U4-21
+Added Pin To Net: NetName=IN_RL5 Pin=U4-22
+Added Pin To Net: NetName=IN_RL6 Pin=U4-23
+Added Pin To Net: NetName=IN_BUZZER Pin=U4-24
+Added Room: Name=Protocol
+Added Room: Name=SENSOR

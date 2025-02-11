@@ -1,0 +1,14 @@
+Added Component: Designator=C22(C_TN_7343)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DIST#"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "-V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "100uF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3V3 Pin=C22-1
+Added Pin To Net: NetName=GND Pin=C22-2
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C22 100uF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component LED2 LED

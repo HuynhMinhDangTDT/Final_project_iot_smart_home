@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=VBUS Pin=R16-1
+Added Member To Class: ClassName=SENSOR Member=Component C31 100nF_0603_1%
+Added Member To Class: ClassName=SENSOR Member=Component C33 100nF_0603_1%
+Added Member To Class: ClassName=SENSOR Member=Component C35 1nF_0603_1%
+Added Member To Class: ClassName=SENSOR Member=Component R40 10K_0603_1%
+Added Member To Class: ClassName=SENSOR Member=Component R43 10K_0603_1%

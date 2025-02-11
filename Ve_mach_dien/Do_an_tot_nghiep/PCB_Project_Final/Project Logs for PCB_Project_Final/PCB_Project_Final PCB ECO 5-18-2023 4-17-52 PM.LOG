@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=NetC4_1 Pin=C4-1
+Removed Pin From Net: NetName=GND Pin=C4-2
+Removed Member From Class: ClassName=SCH_Project_Final Member=C4
+Change Net Name : Old Net Name=NetC4_1 New Net Name=NetC5_1

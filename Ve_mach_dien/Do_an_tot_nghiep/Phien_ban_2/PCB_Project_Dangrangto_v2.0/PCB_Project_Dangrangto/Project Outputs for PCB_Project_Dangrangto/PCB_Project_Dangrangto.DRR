@@ -1,0 +1,27 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: PCB_Project_Dangrangto.PcbDoc   1/8/2025  10:13:30 AM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : PCB_Project_Dangrangto-RoundHoles.TXT
+ASCII SlotHoles File : PCB_Project_Dangrangto-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      8mil (0.201mm)                                            Round             170       PTH        0.00inch (0.00mm)
+T2      24mil (0.599mm)                                           Round             7         PTH        0.00inch (0.00mm)
+T3      24mil (0.599mm)                                           Slot              8         PTH        0.00inch (0.00mm)
+T4      28mil (0.701mm)                                           Round             14        PTH        0.00inch (0.00mm)
+T5      32mil (0.8mm)                                             Round             4         PTH        0.00inch (0.00mm)
+T6      35mil (0.899mm)                                           Round             7         PTH        0.00inch (0.00mm)
+T7      39mil (1.001mm)                                           Round             18        PTH        0.00inch (0.00mm)
+T8      39mil (1.001mm)                                           Slot              3         PTH        0.00inch (0.00mm)
+T9      47mil (1.199mm)                                           Round             25        PTH        0.00inch (0.00mm)
+T10     51mil (1.3mm)                                             Round             30        PTH        0.00inch (0.00mm)
+T11     59mil (1.501mm)                                           Round             5         PTH        0.00inch (0.00mm)
+T12     126mil (3.2mm)                                            Round             4         PTH        0.00inch (0.00mm)
+T13     26mil (0.65mm)                                            Round             4         NPTH       0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              299
+
+Total Processing Time (hh:mm:ss) : 00:00:00

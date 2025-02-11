@@ -1,0 +1,41 @@
+Change Component Footprint: Designator=D2 Old Footprint=LED0805BLU New Footprint=LED0805RED
+Added Component: Designator=C8(cap_0805)
+Add component (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ma_Hang"; Value = "MH004553"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? 0805 106-10uF 10% 16V"; VariantName = "[No Variations]"
+Added Component: Designator=C9(cap_0805)
+Add component (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ma_Hang"; Value = "MH004553"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? 0805 106-10uF 10% 16V"; VariantName = "[No Variations]"
+Added Component: Designator=LED1(LED0805GRN)
+Add component (AddParameter): Name = "Value"; Value = "LED 3 - 5 ly 2 Colour"; VariantName = "[No Variations]"
+Added Component: Designator=LED2(LED0805BLU)
+Add component (AddParameter): Name = "Value"; Value = "LED 3 - 5 ly 2 Colour"; VariantName = "[No Variations]"
+Added Component: Designator=LED3(LED0805BLU)
+Add component (AddParameter): Name = "Value"; Value = "LED 3 - 5 ly 2 Colour"; VariantName = "[No Variations]"
+Added Component: Designator=LED4(LED0805BLU)
+Add component (AddParameter): Name = "Value"; Value = "LED 3 - 5 ly 2 Colour"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=5V Pin=C8-1
+Added Pin To Net: NetName=GND Pin=C8-2
+Added Pin To Net: NetName=3V3 Pin=C9-1
+Added Pin To Net: NetName=GND Pin=C9-2
+Added Pin To Net: NetName=NetLED1_1 Pin=LED1-1
+Added Pin To Net: NetName=GND Pin=LED1-2
+Added Pin To Net: NetName=NetLED2_1 Pin=LED2-1
+Added Pin To Net: NetName=NetC14_1 Pin=LED2-2
+Added Pin To Net: NetName=NetLED3_1 Pin=LED3-1
+Added Pin To Net: NetName=NetC15_1 Pin=LED3-2
+Added Pin To Net: NetName=NetLED4_1 Pin=LED4-1
+Added Pin To Net: NetName=NetC16_1 Pin=LED4-2
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C8 100nF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C9 100nF
+Added Member To Class: ClassName=SCH_Project_Final Member=Component LED1 LED
+Added Member To Class: ClassName=SCH_Project_Final Member=Component LED2 LED
+Added Member To Class: ClassName=SCH_Project_Final Member=Component LED3 LED
+Added Member To Class: ClassName=SCH_Project_Final Member=Component LED4 LED

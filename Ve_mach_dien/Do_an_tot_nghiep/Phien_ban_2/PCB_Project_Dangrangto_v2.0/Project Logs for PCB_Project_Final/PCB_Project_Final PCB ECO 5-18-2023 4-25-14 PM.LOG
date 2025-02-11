@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=5V ISOLATE Pin=C12-1
+Removed Pin From Net: NetName=GND ISOLATE Pin=C12-2
+Removed Member From Class: ClassName=SCH_Project_Final Member=C12
+Added Component: Designator=C4(tu hoa 5mm)
+Add component (AddParameter): Name = "Chung_Loai"; Value = "C?m"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ma_Hang"; Value = "MH001347"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? Hóa 100uF 16V 5x7MM"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=5V ISOLATE Pin=C4-1
+Added Pin To Net: NetName=GND ISOLATE Pin=C4-2
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C4 10uF/16V
+Added Room: Name=SCH_Project_Final

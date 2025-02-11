@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=VIOUT3 Pin=U4-6
+Removed Pin From Net: NetName=VIOUT4 Pin=U4-7
+Removed Pin From Net: NetName=IN_RL3 Pin=U4-8
+Removed Pin From Net: NetName=IN_RL4 Pin=U4-9
+Removed Pin From Net: NetName=VIOUT5 Pin=U4-18
+Removed Pin From Net: NetName=VIOUT2 Pin=U4-38
+Added Pin To Net: NetName=VIOUT2 Pin=U4-6
+Added Pin To Net: NetName=VIOUT3 Pin=U4-7
+Added Pin To Net: NetName=VIOUT4 Pin=U4-8
+Added Pin To Net: NetName=VIOUT5 Pin=U4-9

@@ -1,0 +1,109 @@
+Removed Pin From Net: NetName=5V ISOLATE Pin=C13-1
+Removed Pin From Net: NetName=GND ISOLATE Pin=C13-2
+Removed Pin From Net: NetName=5V Pin=C14-1
+Removed Pin From Net: NetName=GND Pin=C14-2
+Removed Member From Class: ClassName=SCH_Project_Final Member=C19
+Change Component Footprint: Designator=C2 Old Footprint=tu nhom 4 (b) New Footprint=tu hoa 4mm
+Change Component Footprint: Designator=C13 Old Footprint=tu nhom 4 (b) New Footprint=tu hoa 5mm
+Change Component Footprint: Designator=C15 Old Footprint=tu nhom 4 (b) New Footprint=tu hoa 5mm
+Change Component Footprint: Designator=C5 Old Footprint=tu nhom 6.3 (d) New Footprint=tu hoa 6.5mm
+Change Component Footprint: Designator=C6 Old Footprint=tu nhom 6.3 (d) New Footprint=tu hoa 6.5mm
+Change Component Comment : Designator=C15 Old Comment=4.7uF New Comment=4.7uF/25V
+Change Component Comment : Designator=C13 Old Comment=10uF New Comment=4.7uF/25V
+Change Component Comment : Designator=C2 Old Comment=10uF New Comment=10uF/25V
+Change Component Designator: OldDesignator=C3 NewDesignator=C1
+Change Component Designator: OldDesignator=C4 NewDesignator=C3
+Change Component Designator: OldDesignator=C7 NewDesignator=C4
+Change Component Designator: OldDesignator=C8 NewDesignator=C7
+Change Component Designator: OldDesignator=C9 NewDesignator=C8
+Change Component Designator: OldDesignator=C10 NewDesignator=C9
+Change Component Designator: OldDesignator=C11 NewDesignator=C10
+Change Component Designator: OldDesignator=C12 NewDesignator=C11
+Change Component Designator: OldDesignator=C16 NewDesignator=C14
+Change Component Designator: OldDesignator=C17 NewDesignator=C16
+Change Component Designator: OldDesignator=C18 NewDesignator=C17
+Change Component Designator: OldDesignator=C19 NewDesignator=C18
+Change Component Designator: OldDesignator=D2 NewDesignator=D3
+Change Component Designator: OldDesignator=D3 NewDesignator=D4
+Change Component Designator: OldDesignator=D4 NewDesignator=D5
+Change Component Designator: OldDesignator=D5 NewDesignator=D6
+Change Component Designator: OldDesignator=D6 NewDesignator=D2
+Change Component Designator: OldDesignator=R1 NewDesignator=R2
+Change Component Designator: OldDesignator=R2 NewDesignator=R3
+Change Component Designator: OldDesignator=R3 NewDesignator=R4
+Change Component Designator: OldDesignator=R4 NewDesignator=R6
+Change Component Designator: OldDesignator=R5 NewDesignator=R7
+Change Component Designator: OldDesignator=R6 NewDesignator=R5
+Change Component Designator: OldDesignator=R7 NewDesignator=R8
+Change Component Designator: OldDesignator=R8 NewDesignator=R9
+Change Component Designator: OldDesignator=R9 NewDesignator=R10
+Change Component Designator: OldDesignator=R10 NewDesignator=R11
+Change Component Designator: OldDesignator=R11 NewDesignator=R12
+Change Component Designator: OldDesignator=R12 NewDesignator=R13
+Change Component Designator: OldDesignator=R13 NewDesignator=R14
+Change Component Designator: OldDesignator=R14 NewDesignator=R15
+Change Component Designator: OldDesignator=R15 NewDesignator=R16
+Change Component Designator: OldDesignator=R16 NewDesignator=R17
+Change Component Designator: OldDesignator=R17 NewDesignator=R1
+Change component parameters: Designator = "C2" ("C2"); Footprint = "tu nhom 4 (b)"; UniqueID = "\XHBGLXEZ" ("\XHBGLXEZ")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "C?m"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH001356"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? Hóa 2.2uF 50V 4x7MM"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C5" ("C5"); Footprint = "tu nhom 6.3 (d)"; UniqueID = "\IJSBLDNW" ("\IJSBLDNW")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "C?m"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH006862"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? Hóa 100uF 35V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C6" ("C6"); Footprint = "tu nhom 6.3 (d)"; UniqueID = "\VDGBBYLI" ("\VDGBBYLI")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "C?m"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH006862"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? Hóa 100uF 35V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C13" ("C13"); Footprint = "tu nhom 4 (b)"; UniqueID = "\KCDLUJLQ" ("\KCDLUJLQ")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "C?m"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH001354"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? Hóa 47uF 35V 5x11MM"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C15" ("C15"); Footprint = "tu nhom 4 (b)"; UniqueID = "\WALJAMSS" ("\WALJAMSS")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "C?m"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH001354"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? Hóa 47uF 35V 5x11MM"; VariantName = "[No Variations]"
+Added Component: Designator=C12(tu hoa 4mm)
+Add component (AddParameter): Name = "Chung_Loai"; Value = "C?m"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ma_Hang"; Value = "MH001356"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? Hóa 2.2uF 50V 4x7MM"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=5V ISOLATE Pin=C12-1
+Added Pin To Net: NetName=GND ISOLATE Pin=C12-2
+Added Pin To Net: NetName=5V Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C13-2
+Change Net Name : Old Net Name=NetC3_2 New Net Name=NetC1_2
+Change Net Name : Old Net Name=NetC5_1 New Net Name=NetC4_1
+Change Net Name : Old Net Name=NetD2_2 New Net Name=NetD3_2
+Change Net Name : Old Net Name=NetD3_1 New Net Name=NetD4_1
+Change Net Name : Old Net Name=NetD4_1 New Net Name=NetD5_1
+Change Net Name : Old Net Name=NetD5_1 New Net Name=NetD6_1
+Change Net Name : Old Net Name=NetD6_1 New Net Name=NetD2_1
+Change Net Name : Old Net Name=NetR2_2 New Net Name=NetR3_2
+Change Net Name : Old Net Name=NetR8_1 New Net Name=NetR9_1
+Change Net Name : Old Net Name=NetR9_1 New Net Name=NetR10_1
+Change Net Name : Old Net Name=NetR10_1 New Net Name=NetR11_1
+Change Net Name : Old Net Name=NetR11_2 New Net Name=NetR12_2
+Change Net Name : Old Net Name=NetR12_2 New Net Name=NetR13_2
+Change Net Name : Old Net Name=NetR13_2 New Net Name=NetR14_2
+Added Member To Class: ClassName=SCH_Project_Final Member=Component C12 10uF/16V
+Added Room: Name=SCH_Project_Final

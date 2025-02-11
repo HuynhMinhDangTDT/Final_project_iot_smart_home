@@ -1,0 +1,2 @@
+Change Component Footprint: Designator=TP1 Old Footprint=TPTHD_A New Footprint=TEST_POINT_1.0X1.0MM
+Change Component Comment : Designator=TP1 Old Comment=TESTPOINT_MINI New Comment=TESTPOINT_PROBE

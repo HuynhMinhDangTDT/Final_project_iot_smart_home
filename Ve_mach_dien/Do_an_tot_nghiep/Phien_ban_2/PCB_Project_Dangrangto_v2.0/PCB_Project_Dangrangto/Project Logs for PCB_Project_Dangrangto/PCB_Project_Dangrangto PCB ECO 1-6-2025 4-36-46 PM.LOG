@@ -1,0 +1,52 @@
+Removed Pin From Net: NetName=NO1 Pin=RL1-3
+Removed Pin From Net: NetName=NO2 Pin=RL2-3
+Removed Pin From Net: NetName=NO3 Pin=RL3-3
+Removed Pin From Net: NetName=NO4 Pin=RL4-3
+Removed Pin From Net: NetName=COM1 Pin=U5-1
+Removed Pin From Net: NetName=COM1 Pin=U5-2
+Removed Pin From Net: NetName=COM2 Pin=U6-1
+Removed Pin From Net: NetName=COM2 Pin=U6-2
+Removed Pin From Net: NetName=COM3 Pin=U7-1
+Removed Pin From Net: NetName=COM3 Pin=U7-2
+Removed Pin From Net: NetName=COM4 Pin=U8-1
+Removed Pin From Net: NetName=COM4 Pin=U8-2
+Removed Pin From Net: NetName=COM5 Pin=U9-1
+Removed Pin From Net: NetName=COM5 Pin=U9-2
+Removed Pin From Net: NetName=COM6 Pin=U10-1
+Removed Pin From Net: NetName=COM6 Pin=U10-2
+Change Net Name : Old Net Name=NO1 New Net Name=NO1-
+Change Net Name : Old Net Name=NO2 New Net Name=NO2-
+Change Net Name : Old Net Name=NO3 New Net Name=NO3-
+Change Net Name : Old Net Name=NO4 New Net Name=NO4-
+Added Pin To Net: NetName=NO1+ Pin=RL1-3
+Added Pin To Net: NetName=NO1+ Pin=U5-1
+Added Pin To Net: NetName=NO1+ Pin=U5-2
+Added Net: Name=NO1+
+Added Pin To Net: NetName=NO2+ Pin=RL2-3
+Added Pin To Net: NetName=NO2+ Pin=U6-1
+Added Pin To Net: NetName=NO2+ Pin=U6-2
+Added Net: Name=NO2+
+Added Pin To Net: NetName=NO3+ Pin=RL3-3
+Added Pin To Net: NetName=NO3+ Pin=U7-1
+Added Pin To Net: NetName=NO3+ Pin=U7-2
+Added Net: Name=NO3+
+Added Pin To Net: NetName=NO4+ Pin=RL4-3
+Added Pin To Net: NetName=NO4+ Pin=U8-1
+Added Pin To Net: NetName=NO4+ Pin=U8-2
+Added Net: Name=NO4+
+Added Pin To Net: NetName=NO5+ Pin=RL5-3
+Added Pin To Net: NetName=NO5+ Pin=U9-1
+Added Pin To Net: NetName=NO5+ Pin=U9-2
+Added Net: Name=NO5+
+Added Pin To Net: NetName=NO5- Pin=J9-3
+Added Pin To Net: NetName=NO5- Pin=U9-3
+Added Pin To Net: NetName=NO5- Pin=U9-4
+Added Net: Name=NO5-
+Added Pin To Net: NetName=NO6+ Pin=RL6-3
+Added Pin To Net: NetName=NO6+ Pin=U10-1
+Added Pin To Net: NetName=NO6+ Pin=U10-2
+Added Net: Name=NO6+
+Added Pin To Net: NetName=NO6- Pin=J9-1
+Added Pin To Net: NetName=NO6- Pin=U10-3
+Added Pin To Net: NetName=NO6- Pin=U10-4
+Added Net: Name=NO6-

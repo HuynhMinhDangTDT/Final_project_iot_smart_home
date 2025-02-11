@@ -1,0 +1,69 @@
+Removed Pin From Net: NetName=GND ISOLATE Pin=Q2-1
+Removed Pin From Net: NetName=NetC14_1 Pin=Q2-2
+Removed Pin From Net: NetName=GND ISOLATE Pin=Q3-1
+Removed Pin From Net: NetName=NetC15_1 Pin=Q3-2
+Removed Pin From Net: NetName=GND ISOLATE Pin=Q4-1
+Removed Pin From Net: NetName=NetC16_1 Pin=Q4-2
+Change Component Footprint: Designator=Q2 Old Footprint=2SC1815 New Footprint=trans_smd
+Change Component Footprint: Designator=Q3 Old Footprint=2SC1815 New Footprint=trans_smd
+Change Component Footprint: Designator=Q4 Old Footprint=2SC1815 New Footprint=trans_smd
+Change Component Comment : Designator=Q2 Old Comment=2SC1815 New Comment=C1815_SMD
+Change Component Comment : Designator=Q3 Old Comment=2SC1815 New Comment=C1815_SMD
+Change Component Comment : Designator=Q4 Old Comment=2SC1815 New Comment=C1815_SMD
+Change component parameters: Designator = "Q2" ("Q2"); Footprint = "2SC1815"; UniqueID = "\HNNXMNMA" ("\HNNXMNMA")
+Change component parameters (AddParameter): Name = "Code_JEDEC"; Value = "TO-92A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer Link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.fairchildsemi.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.fairchildsemi.com/ds/2N%2F2N3904.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DatasheetVersion"; Value = "1997"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "15-Jan-2003"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "PCB Footprint 'BCY-W3/D4.7' replaced"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "TO-92A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageVersion"; Value = "Sep-1998"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Q3" ("Q3"); Footprint = "2SC1815"; UniqueID = "\TQYZJUMG" ("\TQYZJUMG")
+Change component parameters (AddParameter): Name = "Code_JEDEC"; Value = "TO-92A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer Link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.fairchildsemi.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.fairchildsemi.com/ds/2N%2F2N3904.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DatasheetVersion"; Value = "1997"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "15-Jan-2003"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "PCB Footprint 'BCY-W3/D4.7' replaced"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "TO-92A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageVersion"; Value = "Sep-1998"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Q4" ("Q4"); Footprint = "2SC1815"; UniqueID = "\WWMKPIYG" ("\WWMKPIYG")
+Change component parameters (AddParameter): Name = "Code_JEDEC"; Value = "TO-92A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer Link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.fairchildsemi.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.fairchildsemi.com/ds/2N%2F2N3904.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DatasheetVersion"; Value = "1997"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "15-Jan-2003"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "PCB Footprint 'BCY-W3/D4.7' replaced"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "TO-92A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageVersion"; Value = "Sep-1998"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND ISOLATE Pin=Q2-2
+Added Pin To Net: NetName=NetC14_1 Pin=Q2-3
+Added Pin To Net: NetName=GND ISOLATE Pin=Q3-2
+Added Pin To Net: NetName=NetC15_1 Pin=Q3-3
+Added Pin To Net: NetName=GND ISOLATE Pin=Q4-2
+Added Pin To Net: NetName=NetC16_1 Pin=Q4-3
+Added Pin To Net: NetName=NetQ2_1 Pin=Q2-1
+Added Pin To Net: NetName=NetQ2_1 Pin=R14-1
+Added Pin To Net: NetName=NetQ2_1 Pin=R17-2
+Added Net: Name=NetQ2_1
+Added Pin To Net: NetName=NetQ3_1 Pin=Q3-1
+Added Pin To Net: NetName=NetQ3_1 Pin=R15-1
+Added Pin To Net: NetName=NetQ3_1 Pin=R18-2
+Added Net: Name=NetQ3_1
+Added Pin To Net: NetName=NetQ4_1 Pin=Q4-1
+Added Pin To Net: NetName=NetQ4_1 Pin=R16-1
+Added Pin To Net: NetName=NetQ4_1 Pin=R19-2
+Added Net: Name=NetQ4_1

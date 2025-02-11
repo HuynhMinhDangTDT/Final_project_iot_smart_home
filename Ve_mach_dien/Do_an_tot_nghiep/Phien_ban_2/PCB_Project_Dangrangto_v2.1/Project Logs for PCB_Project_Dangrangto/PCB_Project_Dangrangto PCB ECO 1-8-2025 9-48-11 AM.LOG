@@ -1,0 +1,25 @@
+Change Component Designator: OldDesignator=IO2 NewDesignator=J10
+Change Component Designator: OldDesignator=IO48 NewDesignator=J12
+Added Component: Designator=D15(LED0805RED)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = "ASSEMBLY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = "DESCRIPTION"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = "MANF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = "MANF_PART#"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = "2.2V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = "36t@Javan"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "LED805RED"; VariantName = "[No Variations]"
+Added Component: Designator=R67(tro smd 0603)
+Add component (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ma_Hang"; Value = "10K"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ten_Linh_Kien"; Value = "Tr? 0603 5% 10k"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=D15-2
+Added Pin To Net: NetName=12V Pin=R67-2
+Added Pin To Net: NetName=NetD15_1 Pin=D15-1
+Added Pin To Net: NetName=NetD15_1 Pin=R67-1
+Added Net: Name=NetD15_1
+Added Member To Class: ClassName=Power Member=Component D15 LED805RED
+Added Member To Class: ClassName=Power Member=Component R67 10K_0603_1%

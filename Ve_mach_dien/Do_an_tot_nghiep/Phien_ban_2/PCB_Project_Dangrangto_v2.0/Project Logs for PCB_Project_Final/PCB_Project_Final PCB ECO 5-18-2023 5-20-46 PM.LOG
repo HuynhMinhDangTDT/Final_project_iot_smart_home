@@ -1,0 +1,19 @@
+Added Component: Designator=J6(MSTB_4)
+Add component (AddParameter): Name = "ASSEMBLY"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DESC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DIST#"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MANF_P#"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PARAM2"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PRICE"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "CONN_TB4"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=5V Pin=J6-3
+Added Pin To Net: NetName=GND Pin=J6-4
+Added Pin To Net: NetName=SCL Pin=J6-1
+Added Pin To Net: NetName=SCL Pin=U2-36
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=J6-2
+Added Pin To Net: NetName=SDA Pin=U2-33
+Added Net: Name=SDA
+Added Member To Class: ClassName=SCH_Project_Final Member=Component J6 CONN_TB4

@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=+5V Pin=U14-1
+Removed Pin From Net: NetName=+5V Pin=U14-1
+Removed Pin From Net: NetName=GND Pin=U14-4
+Removed Pin From Net: NetName=GND Pin=U14-4
+Removed Pin From Net: NetName=A+ Pin=U14-5
+Removed Pin From Net: NetName=A+ Pin=U14-5
+Removed Pin From Net: NetName=B- Pin=U14-6
+Removed Pin From Net: NetName=B- Pin=U14-6
+Removed Pin From Net: NetName=GROUND Pin=U14-7
+Removed Pin From Net: NetName=GROUND Pin=U14-7
+Removed Member From Class: ClassName=SCH_Project_Final Member=U14

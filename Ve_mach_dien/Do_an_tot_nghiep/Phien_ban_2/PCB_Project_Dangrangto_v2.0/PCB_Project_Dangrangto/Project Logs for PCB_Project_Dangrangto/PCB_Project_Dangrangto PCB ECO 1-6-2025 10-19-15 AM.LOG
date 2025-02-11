@@ -1,0 +1,68 @@
+Added Component: Designator=D4(SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR)
+Add component (AddParameter): Name = "Assembly Type"; Value = "SMT Assembly"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part Number"; Value = "C558442"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "TECH PUBLIC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "TPUSBLC6-2SC6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SOT-23-6"; VariantName = "[No Variations]"
+Added Component: Designator=D6(SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR)
+Add component (AddParameter): Name = "Assembly Type"; Value = "SMT Assembly"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part Number"; Value = "C558442"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "TECH PUBLIC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "TPUSBLC6-2SC6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SOT-23-6"; VariantName = "[No Variations]"
+Added Component: Designator=J2(USB-C-SMD_TYPE-C16PIN)
+Add component (AddParameter): Name = "Assembly Type"; Value = "SMT Assembly"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part Number"; Value = "C2765186"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "SHOU HAN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "TYPE-C16PIN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SMD"; VariantName = "[No Variations]"
+Added Component: Designator=J3(USB-C-SMD_TYPE-C16PIN)
+Add component (AddParameter): Name = "Assembly Type"; Value = "SMT Assembly"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part Number"; Value = "C2765186"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "SHOU HAN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "TYPE-C16PIN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SMD"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetD4_1 Pin=D4-1
+Added Pin To Net: NetName=GND Pin=D4-2
+Added Pin To Net: NetName=NetD4_3 Pin=D4-3
+Added Pin To Net: NetName=NetD4_4 Pin=D4-4
+Added Pin To Net: NetName=VBUS Pin=D4-5
+Added Pin To Net: NetName=NetD4_6 Pin=D4-6
+Added Pin To Net: NetName=NetD6_1 Pin=D6-1
+Added Pin To Net: NetName=GND Pin=D6-2
+Added Pin To Net: NetName=NetD6_3 Pin=D6-3
+Added Pin To Net: NetName=NetD6_4 Pin=D6-4
+Added Pin To Net: NetName=VBUS Pin=D6-5
+Added Pin To Net: NetName=NetD6_6 Pin=D6-6
+Added Pin To Net: NetName=GND Pin=J2-1
+Added Pin To Net: NetName=GND Pin=J2-2
+Added Pin To Net: NetName=GND Pin=J2-3
+Added Pin To Net: NetName=GND Pin=J2-4
+Added Pin To Net: NetName=GND Pin=J2-A1B12
+Added Pin To Net: NetName=VBUS Pin=J2-A4B9
+Added Pin To Net: NetName=USB_CC1 Pin=J2-A5
+Added Pin To Net: NetName=NetD4_6 Pin=J2-A6
+Added Pin To Net: NetName=NetD4_4 Pin=J2-A7
+Added Pin To Net: NetName=GND Pin=J2-B1A12
+Added Pin To Net: NetName=VBUS Pin=J2-B4A9
+Added Pin To Net: NetName=USB_CC2 Pin=J2-B5
+Added Pin To Net: NetName=NetD4_6 Pin=J2-B6
+Added Pin To Net: NetName=NetD4_4 Pin=J2-B7
+Added Pin To Net: NetName=GND Pin=J3-1
+Added Pin To Net: NetName=GND Pin=J3-2
+Added Pin To Net: NetName=GND Pin=J3-3
+Added Pin To Net: NetName=GND Pin=J3-4
+Added Pin To Net: NetName=GND Pin=J3-A1B12
+Added Pin To Net: NetName=VBUS Pin=J3-A4B9
+Added Pin To Net: NetName=USB_CC2 Pin=J3-A5
+Added Pin To Net: NetName=NetD6_6 Pin=J3-A6
+Added Pin To Net: NetName=NetD6_4 Pin=J3-A7
+Added Pin To Net: NetName=GND Pin=J3-B1A12
+Added Pin To Net: NetName=VBUS Pin=J3-B4A9
+Added Pin To Net: NetName=USB_CC3 Pin=J3-B5
+Added Pin To Net: NetName=NetD6_6 Pin=J3-B6
+Added Pin To Net: NetName=NetD6_4 Pin=J3-B7
+Added Member To Class: ClassName=MCU_ESP32_S3 Member=Component D4 TPUSBLC6-2SC6
+Added Member To Class: ClassName=MCU_ESP32_S3 Member=Component D6 TPUSBLC6-2SC6
+Added Member To Class: ClassName=MCU_ESP32_S3 Member=Component J2 TYPE-C 16PIN 2MD(073)
+Added Member To Class: ClassName=MCU_ESP32_S3 Member=Component J3 TYPE-C 16PIN 2MD(073)

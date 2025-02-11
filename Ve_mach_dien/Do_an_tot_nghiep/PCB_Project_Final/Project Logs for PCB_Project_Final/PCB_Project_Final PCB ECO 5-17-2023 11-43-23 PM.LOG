@@ -1,0 +1,34 @@
+Removed Pin From Net: NetName=+5V Pin=U4-1
+Removed Pin From Net: NetName=+5V Pin=U4-1
+Removed Pin From Net: NetName=TXD Pin=U4-2
+Removed Pin From Net: NetName=TXD Pin=U4-2
+Removed Pin From Net: NetName=RXD Pin=U4-3
+Removed Pin From Net: NetName=RXD Pin=U4-3
+Removed Pin From Net: NetName=GND Pin=U4-4
+Removed Pin From Net: NetName=GND Pin=U4-4
+Removed Pin From Net: NetName=A+ Pin=U4-5
+Removed Pin From Net: NetName=A+ Pin=U4-5
+Removed Pin From Net: NetName=B- Pin=U4-6
+Removed Pin From Net: NetName=B- Pin=U4-6
+Removed Pin From Net: NetName=GROUND Pin=U4-7
+Removed Pin From Net: NetName=GROUND Pin=U4-7
+Removed Member From Class: ClassName=SCH_Project_Final Member=U4
+Added Component: Designator=U14(RS485)
+Added Pin To Net: NetName=+5V Pin=U14-1
+Added Pin To Net: NetName=+5V Pin=U14-1
+Added Pin To Net: NetName=GND Pin=U14-4
+Added Pin To Net: NetName=GND Pin=U14-4
+Added Pin To Net: NetName=A+ Pin=U14-5
+Added Pin To Net: NetName=A+ Pin=U14-5
+Added Pin To Net: NetName=B- Pin=U14-6
+Added Pin To Net: NetName=B- Pin=U14-6
+Added Pin To Net: NetName=GROUND Pin=U14-7
+Added Pin To Net: NetName=GROUND Pin=U14-7
+Added Pin To Net: NetName=RX3 Pin=U14-3
+Added Pin To Net: NetName=RX3 Pin=U14-3
+Added Net: Name=RX3
+Added Pin To Net: NetName=TX3 Pin=U14-2
+Added Pin To Net: NetName=TX3 Pin=U14-2
+Added Net: Name=TX3
+Added Member To Class: ClassName=SCH_Project_Final Member=Component U14 RS485
+Added Room: Name=SCH_Project_Final
