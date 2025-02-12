@@ -326,7 +326,7 @@
       window.setTimeout(function () {
           location.href = "http://127.0.0.1:8000";
           // location.href = "https://7530-2402-9d80-3c1-98f3-f125-6b92-1a96-bfc3.ngrok-free.app/giam_sat_gieng_troi/";
-      }, 3000); // refresh/redirect after 5 seconds.
+      }, 500); // refresh/redirect after 5 seconds.
       function dongho() {
           var time = new Date();
           var gio = time.getHours();
@@ -342,7 +342,43 @@
           setTimeout("dongho", 1000);
       }
       dongho();
-  </script>
+    </script>
+    <script>
+      let isCounting = false;
+      let totalTime = 0; // Thời gian đã đếm được (tính bằng giây)
+      let interval; // Lưu interval để dừng khi cần
+
+      // Hàm định dạng thời gian thành HH:MM:SS
+      function formatTime(seconds) {
+          const hrs = Math.floor(seconds / 3600).toString().padStart(2, '0');
+          const mins = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+          const secs = (seconds % 60).toString().padStart(2, '0');
+          return `${hrs}:${mins}:${secs}`;
+      }
+
+      // Hàm cập nhật thời gian trên giao diện
+      function updateTimer() {
+          document.getElementById('timer').textContent = formatTime(totalTime);
+      }
+
+      // Hàm xử lý khi thay đổi trạng thái switch
+      document.getElementById('switch').addEventListener('change', function() {
+          if (this.checked) {
+              // Bắt đầu đếm khi bật
+              if (!isCounting) {
+                  isCounting = true;
+                  interval = setInterval(() => {
+                      totalTime++;
+                      updateTimer();
+                  }, 1000); // Cập nhật mỗi giây
+              }
+          } else {
+              // Dừng đếm khi tắt
+              isCounting = false;
+              clearInterval(interval);
+          }
+      });
+    </script>
 
 </head>
   <body>
@@ -421,8 +457,8 @@
                 <div class="content-label">
                   <div class="label-right">
                     <div class="time-wrap">
-                      <h2>15:50</h2>
-                      <p class="normal-p">Saturday January 20, 2025</p>
+                      <h2>{{ formatted_time }}</h2>
+                      <p class="normal-p">{{ formatted_date }}</p>
                     </div>
                     <div class="weather-wrap">
                       <!-- <div class="timer-wrap">
@@ -439,11 +475,12 @@
                         loading="lazy"
                         alt=""
                         class="icon-wrap"/> : {{ temp }}°C</p>
-                      <!-- <p class="gold"  for = "validateFormCheck1" name = "temp"><img
-                        src="/static/img/humidity.png"
+                      <!-- <img width="50" height="50" src="https://img.icons8.com/fluency-systems-regular/50/humidity.png" alt="humidity"/> -->
+                      <p class="gold"  for = "validateFormCheck1" name = "temp"><img
+                        src="https://img.icons8.com/fluency-systems-regular/50/humidity.png"
                         loading="lazy"
                         alt=""
-                        class="icon-wrap"/> : {{ hum }}%</p> -->
+                        class="icon-wrap"/> : {{ hum }}%</p>
                     </div>
                   </div>
                 </div>
@@ -458,14 +495,14 @@
                       alt=""
                       class="icon-img"/> -->
                       <label class="switch">
-                        <input type="checkbox" name="toggle0" value=True {% if toggles0 %}checked{% endif %} onchange="autoSubmitToggle(this)">
+                        <input type="checkbox" id="checkbox" name="toggle0" value=True {% if toggles0 %}checked{% endif %} onchange="autoSubmitToggle(this)">
                         <span class="slider round"></span>
                       </label>
                 </div>
                 <div class="card-bot">
                   <div class="card-left">
                     <p class="p-20 white" name = "Energy_device0"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                      /> Tieu thu: {{ Energy_device0 }}<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device0 }}</p> </p>
+                      /> Tieu thu: {{ Energy_device0 }}kWh<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device0 }}kW</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -475,10 +512,11 @@
                       class="icon-wrap"
                     /> Thoi gian su dung</p>
                   </div>
-                  <p class="green">
+                  <!-- <p class="green">
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
-                  </p>
+                  </p> -->
+                  <p class="green"><span id="timer" class="p-30">{{ toggle_durations_0 }}</span></p>
                   <p class="white" name = "namedv0">{{ namedv0 }}</p>
                 </div>
               </div>
@@ -499,7 +537,7 @@
                 <div class="card-bot">
                   <div class="card-left">
                     <p class="p-20 white" name = "Energy_device1"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                      /> Tieu thu: {{ Energy_device1 }}<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device1 }}</p> </p>
+                      /> Tieu thu: {{ Energy_device1 }}kWh<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device1 }}kW</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -509,10 +547,11 @@
                       class="icon-wrap"
                     /> Thoi gian su dung</p>
                   </div>
-                  <p class="green">
+                  <!-- <p class="green">
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
-                  </p>
+                  </p> -->
+                  <p class="green"><span id="timer" class="p-30">{{ toggle_durations_1 }}</span></p>
                   <p class="white" name = "namedv1">{{ namedv1 }}</p>
                 </div>
               </div>
@@ -533,7 +572,7 @@
                 <div class="card-bot">
                   <div class="card-left">
                     <p class="p-20 white" name = "Energy_device2"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                      /> Tieu thu: {{ Energy_device2 }}<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device2 }}</p> </p>
+                      /> Tieu thu: {{ Energy_device2 }}kWh<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device2 }}kW</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -543,10 +582,11 @@
                       class="icon-wrap"
                     /> Thoi gian su dung</p>
                   </div>
-                  <p class="green">
+                  <!-- <p class="green">
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
-                  </p>
+                  </p> -->
+                  <p class="green"><span id="timer" class="p-30">{{ toggle_durations_2 }}</span></p>
                   <p class="white" name = "namedv2">{{ namedv2 }}</p>
                 </div>
               </div>
@@ -567,7 +607,7 @@
                 <div class="card-bot">
                   <div class="card-left">
                     <p class="p-20 white" name = "Energy_device3"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                      /> Tieu thu: {{ Energy_device3 }}<p class="p-15 white" name = "power_device3">Cong suat: {{ power_device5 }}</p> </p>
+                      /> Tieu thu: {{ Energy_device3 }}kWh<p class="p-15 white" name = "power_device3">Cong suat: {{ power_device5 }}kW</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -577,10 +617,11 @@
                       class="icon-wrap"
                     /> Thoi gian su dung</p>
                   </div>
-                  <p class="green">
+                  <!-- <p class="green">
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
-                  </p>
+                  </p> -->
+                  <p class="green"><span id="timer" class="p-30">{{ toggle_durations_3 }}</span></p>
                   <p class="white" name = "namedv3">{{ namedv3 }}</p>
                 </div>
               </div>
@@ -603,7 +644,7 @@
                 <div class="card-bot">
                   <div class="card-left">
                     <p class="p-20 white" name = "Energy_device4"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                      /> Tieu thu: {{ Energy_device4 }}<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device4 }}</p> </p>
+                      /> Tieu thu: {{ Energy_device4 }}kWh<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device4 }}kW</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -613,10 +654,11 @@
                       class="icon-wrap"
                     /> Thoi gian su dung</p>
                   </div>
-                  <p class="green">
+                  <!-- <p class="green">
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
-                  </p>
+                  </p> -->
+                  <p class="green"><span id="timer" class="p-30">{{ toggle_durations_4 }}</span></p>
                   <p class="white" name="namedv4">{{ namedv4 }}</p>
                 </div>
               </div>
@@ -636,7 +678,7 @@
                 <div class="card-bot">
                   <div class="card-left">
                     <p class="p-20 white" name = "Energy_device5"><img src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg" loading="lazy" alt="" class="energy-img"
-                    /> Tieu thu: {{ Energy_device5 }}<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device5 }}</p> </p>
+                    /> Tieu thu: {{ Energy_device5 }}kWh<p class="p-15 white" name = "power_device5">Cong suat: {{ power_device5 }}kW</p> </p>
                   </div>
                   <div class="timer-wrap">
                     <p class="p-12 white"><img
@@ -646,10 +688,11 @@
                       class="icon-wrap"
                     /> Thoi gian su dung</p>
                   </div>
-                  <p class="green">
+                  <!-- <p class="green">
                     <span class="p-30">12</span> min
                     <span class="p-30">07</span>sec
-                  </p>
+                  </p> -->
+                  <p class="green"><span id="timer" class="p-30">{{ toggle_durations_5 }}</span></p>
                   <p class="white" name = "namedv5">{{ namedv5 }}</p>
                 </div>
               </div>
@@ -659,14 +702,14 @@
               <div class="content-wrap">
                 <div class="energy-wrap">
                   <div class="energy-top">
-                    <div class="energy-icon">
+                    <!-- <div class="energy-icon">
                       <img
                         src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4b_flash.svg"
                         loading="lazy"
                         alt=""
                         class="energy-img"/>
-                    </div>
-                    <p>Total energy user</p>
+                    </div> -->
+                    <p class="p-10">Total energy</p>
                     <a href="#" class="energy-link w-inline-block"
                       ><img
                         src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b48_three%20dots.svg"
@@ -676,16 +719,22 @@
                     /></a>
                   </div>
                   <div class="energy-mid">
-                    <img
+                    <!-- <img
                       src="https://cdn.prod.website-files.com/677e54d6b4b43ff50f016abe/677e54d6b4b43ff50f016b4c_chart%20pie.svg"
                       loading="lazy"
                       alt=""
                       class="energy-img"
-                    />
-                    <div class="energy-heading" >
+                    /> -->
                       <h4 name = "capacity">{{ capacity }}</h4>
-                      <h2>Wh</h2>
-                    </div>
+                      <h4>kWh</h4>
+                    <!-- <div class="energy-heading" >
+                      <h4 name = "capacity">{{ capacity }}</h4>
+                      <h4>kWh</h4>
+                    </div> -->
+                  </div>
+                  <div>
+                    <h4 name = "total_Power">{{ total_Power }}kW</h4>
+                    
                   </div>
                   <div class="energy-bot">
                     <a

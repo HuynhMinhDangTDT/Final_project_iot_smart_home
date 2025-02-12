@@ -33,11 +33,24 @@ int screenWidth, screenHeight;
 // Thông tin trạng thái thiết bị
 struct Device {
     int x, y, w, h;
-    bool isOn,isOff;
+    bool isOn;
     uint32_t startTime;
-    int power;
+    float power;
+    float energy;
+    String name;
 };
 Device devices[6];
+
+// Định nghĩa cấu trúc để lưu trữ dữ liệu
+struct SensorData {
+  float temp;   // Nhiệt độ
+  float hum;    // Độ ẩm
+  float energy; // Năng lượng
+  float power;  // Công suất
+};
+
+// Khai báo biến toàn cục để lưu trữ dữ liệu
+SensorData sensorData;
 
 // Cập nhật vị trí các nút sao cho cách đều và có khoảng cách ngăn giữa các nút và giữa các hàng
 void updateButtonPositions() {
@@ -47,19 +60,19 @@ void updateButtonPositions() {
     int buttonHeight = (screenHeight - 160 - rowGap) / 2; // 2 hàng, khoảng cách đều, trừ 60px cho nhiệt độ và độ ẩm
 
     // Sắp xếp các nút trong 2 hàng và 3 cột, có khoảng cách giữa các hàng
-    devices[0] = {40, 60, buttonWidth, buttonHeight, false, 0, 50}; 
-    devices[1] = {40 + buttonWidth + gap, 60, buttonWidth, buttonHeight, false, 0, 75};
-    devices[2] = {40 + 2 * (buttonWidth + gap), 60, buttonWidth, buttonHeight, false, 0, 100}; 
+    devices[0] = {40, 60, buttonWidth, buttonHeight, false, 0, 0.0, 0.0, ""}; 
+    devices[1] = {40 + buttonWidth + gap, 60, buttonWidth, buttonHeight, false, 0, 0.0, 0.0, ""};
+    devices[2] = {40 + 2 * (buttonWidth + gap), 60, buttonWidth, buttonHeight, false, 0, 0.0, 0.0, ""}; 
     
-    devices[3] = {40, 130 + rowGap, buttonWidth, buttonHeight, false, 0, 150}; 
-    devices[4] = {40 + buttonWidth + gap, 130 + rowGap, buttonWidth, buttonHeight, false, 0, 200}; 
-    devices[5] = {40 + 2 * (buttonWidth + gap), 130 + rowGap, buttonWidth, buttonHeight, false, 0, 250}; 
+    devices[3] = {40, 130 + rowGap, buttonWidth, buttonHeight, false, 0, 0.0, 0.0, ""}; 
+    devices[4] = {40 + buttonWidth + gap, 130 + rowGap, buttonWidth, buttonHeight, false, 0, 0.0, 0.0, ""}; 
+    devices[5] = {40 + 2 * (buttonWidth + gap), 130 + rowGap, buttonWidth, buttonHeight, false, 0, 0.0, 0.0, ""}; 
 }
 
 void setup() {
     Serial.begin(115200);
     // mySerial.begin(9600); // Kết nối với ESP32-S3 qua SoftwareSerial
-    Serial1.begin(9600);
+    Serial1.begin(115200);
     Wire.begin();  // Khởi tạo I2C Master
     tft.begin(tft.readID());
     tft.setRotation(1);  // Xoay màn hình ngang
@@ -81,11 +94,13 @@ void setup() {
 
 
 void updateDeviceState(String data) {
-    // Tìm vị trí dấu phẩy (,) để tách ID thiết bị và trạng thái
+  // Tìm vị trí dấu phẩy (,) để tách ID thiết bị và trạng thái
+  data.trim();
+  if (data.startsWith("BUTTON:")) {
     int commaIndex = data.indexOf(',');
     if (commaIndex == -1) return;  // Nếu không tìm thấy dấu phẩy, bỏ qua
 
-    int deviceID = data.substring(0, commaIndex).toInt();  // Lấy ID thiết bị
+    int deviceID = data.substring(7, commaIndex).toInt();  // Lấy ID thiết bị
     String state = data.substring(commaIndex + 1);  // Lấy trạng thái ("ON" hoặc "OFF")
 
     if (deviceID >= 0 && deviceID < 6) {  // Đảm bảo ID hợp lệ
@@ -96,40 +111,148 @@ void updateDeviceState(String data) {
         // Serial.print(" to ");
         // Serial.println(state);
     }
+  }
+  else if (data.startsWith("ENERGY:")) {
+    // String energyStr = data.substring(7);
+    // float energy = energyStr.toFloat();
+
+    int commaIndex = data.indexOf(',');
+    if (commaIndex == -1) return;  // Nếu không tìm thấy dấu phẩy, bỏ qua
+
+    int deviceID = data.substring(7, commaIndex).toInt();  // Lấy ID thiết bị
+    String energyStr = data.substring(commaIndex + 1);  // Lấy trạng thái ("ON" hoặc "OFF")
+
+    float energy = energyStr.toFloat();
+    // Serial.print("Updated Device ");
+    // Serial.print(deviceID);
+    // Serial.print("Energy: ");
+    // Serial.println(energy);
+
+    // for (int i = 0; i < 6; i++) {
+    //     devices[i].energy = energy / 1000;
+    // }
+    devices[deviceID].energy = energy / 1000;
+    
+  }
+  else if (data.startsWith("POWER:")) {
+    // String powerStr = data.substring(6);
+    // float power = powerStr.toFloat();
+    // Serial.print("Power: "); Serial.println(power);
+    // for (int i = 0; i < 6; i++) {
+    //   devices[i].power = power;
+    // }
+    // devices[deviceID].power = power;
+    int commaIndex = data.indexOf(',');
+    if (commaIndex == -1) return;  // Nếu không tìm thấy dấu phẩy, bỏ qua
+
+    int deviceID = data.substring(6, commaIndex).toInt();  // Lấy ID thiết bị
+    String powerStr = data.substring(commaIndex + 1);  // Lấy trạng thái ("ON" hoặc "OFF")
+
+    float power = powerStr.toFloat();
+    // Serial.print("Updated Device ");
+    // Serial.print(deviceID);
+    // Serial.print("Power: ");
+    // Serial.println(power);
+
+    // for (int i = 0; i < 6; i++) {
+    //     devices[i].energy = energy / 1000;
+    // }
+    devices[deviceID].power = power;
+  }
+  else if (data.startsWith("NAME:")) {
+
+    int commaIndex = data.indexOf(',');
+    if (commaIndex == -1) return;  // Nếu không tìm thấy dấu phẩy, bỏ qua
+
+    int deviceID = data.substring(5, commaIndex).toInt();  // Lấy ID thiết bị
+    String nameStr = data.substring(commaIndex + 1);  // Lấy trạng thái ("ON" hoặc "OFF")
+
+    // Serial.print("Updated Device ");
+    // Serial.print(deviceID);
+    // Serial.print("Name: ");
+    // Serial.println(nameStr);
+
+    devices[deviceID].name = nameStr;
+  }
+  else if (data.startsWith("TEMP:")) {
+    String tempStr = data.substring(5);
+    float temp = tempStr.toFloat();
+    // Serial.print("Temperature: "); Serial.println(temp);
+    sensorData.temp = temp;
+    // tft.setCursor(40, screenHeight - 60);
+    // tft.setTextColor(YELLOW);
+    // tft.setTextSize(2);
+    // tft.fillRect(40, screenHeight - 60, screenWidth - 80, 20, BLACK);
+    // tft.print("Temp: "); tft.print(temp); tft.print(" C");
+
+  }
+  else if (data.startsWith("HUM:")) {
+    String humStr = data.substring(4);
+    float hum = humStr.toFloat();
+    sensorData.hum = hum;
+    // Serial.print("Humidity: "); Serial.println(hum);
+    // tft.setCursor(40, screenHeight - 40);
+    // tft.setTextColor(YELLOW);
+    // tft.setTextSize(2);
+    // tft.fillRect(40, screenHeight - 40, screenWidth - 80, 20, BLACK);
+    // tft.print("Hum: "); tft.print(hum); tft.print(" %");
+  }
+  else if (data.startsWith("TOTALENERGY:")) {
+    String total_energyStr = data.substring(12);
+    float total_energy = total_energyStr.toFloat();
+    // Serial.print("Humidity: "); Serial.println(hum);
+    sensorData.energy = total_energy / 1000;
+    // tft.setCursor(300, screenHeight - 60);
+    // tft.setTextColor(YELLOW);
+    // tft.setTextSize(2);
+    // tft.fillRect(300, screenHeight - 60, screenWidth - 80, 20, BLACK);
+    // tft.print("TE: "); tft.print(total_energy / 1000); tft.print(" kWh");
+  }
+  else if (data.startsWith("TOTALPOWER:")) {
+    String total_powerStr = data.substring(11);
+    float total_power = total_powerStr.toFloat();
+    // Serial.print("total_power: "); Serial.println(total_power);
+    sensorData.power = total_power;
+    // tft.setCursor(300, screenHeight - 40);
+    // tft.setTextColor(YELLOW);
+    // tft.setTextSize(2);
+    // tft.fillRect(300, screenHeight - 40, screenWidth - 80, 20, BLACK);
+    // tft.print("TP: "); tft.print(total_power); tft.print(" W");
+  }
 }
 
-void readFromESP32() {
-    if (Serial1.available()) {
-        String data = Serial1.readStringUntil(';');  // Đọc chuỗi đến khi gặp dấu ';'
-        data.trim();  // Loại bỏ khoảng trắng thừa
-        Serial.println("Received from ESP32-S3: " + data);
+// void readFromESP32() {
+//     if (Serial1.available()) {
+//         String data = Serial1.readStringUntil(';');  // Đọc chuỗi đến khi gặp dấu ';'
+//         data.trim();  // Loại bỏ khoảng trắng thừa
+//         Serial.println("Received from ESP32-S3: " + data);
         
-        // Phân tích chuỗi nhận được
-        int idx1 = data.indexOf(',');
-        int idx2 = data.indexOf(',', idx1 + 1);
-        int idx3 = data.indexOf(',', idx2 + 1);
-        int idx4 = data.indexOf(',', idx3 + 1);
-        int idx5 = data.indexOf(',', idx4 + 1);
-        int idx6 = data.indexOf(',', idx5 + 1);
+//         // Phân tích chuỗi nhận được
+//         int idx1 = data.indexOf(',');
+//         int idx2 = data.indexOf(',', idx1 + 1);
+//         int idx3 = data.indexOf(',', idx2 + 1);
+//         int idx4 = data.indexOf(',', idx3 + 1);
+//         int idx5 = data.indexOf(',', idx4 + 1);
+//         int idx6 = data.indexOf(',', idx5 + 1);
 
-        String btnID = data.substring(0, idx1);
-        String btnState = data.substring(idx1 + 1, idx2);
-        String btnName = data.substring(idx2 + 1, idx3);
-        String power = data.substring(idx3 + 1, idx4);
-        String energy = data.substring(idx4 + 1, idx5);
-        String temp = data.substring(idx5 + 1, idx6);
-        String humi = data.substring(idx6 + 1);
+//         String btnID = data.substring(0, idx1);
+//         String btnState = data.substring(idx1 + 1, idx2);
+//         String btnName = data.substring(idx2 + 1, idx3);
+//         String power = data.substring(idx3 + 1, idx4);
+//         String energy = data.substring(idx4 + 1, idx5);
+//         String temp = data.substring(idx5 + 1, idx6);
+//         String humi = data.substring(idx6 + 1);
 
-        // Cập nhật giao diện hoặc xử lý thông tin
-        Serial.println("Button ID: " + btnID);
-        Serial.println("Button State: " + btnState);
-        Serial.println("Button Name: " + btnName);
-        Serial.println("Power: " + power);
-        Serial.println("Energy: " + energy);
-        Serial.println("Temperature: " + temp);
-        Serial.println("Humidity: " + humi);
-    }
-}
+//         // Cập nhật giao diện hoặc xử lý thông tin
+//         Serial.println("Button ID: " + btnID);
+//         Serial.println("Button State: " + btnState);
+//         Serial.println("Button Name: " + btnName);
+//         Serial.println("Power: " + power);
+//         Serial.println("Energy: " + energy);
+//         Serial.println("Temperature: " + temp);
+//         Serial.println("Humidity: " + humi);
+//     }
+// }
 
 void loop() {
     readTouch();
@@ -145,19 +268,20 @@ void loop() {
             updateDeviceState(data);  // Gọi hàm cập nhật trạng thái thiết bị
         }
     }
-    delay(100);
+    // delay(10);
 }
 
 // Vẽ giao diện ban đầu
 void drawUI() {
-    tft.fillScreen(BLACK);
-    tft.setTextColor(WHITE);
+    tft.setTextColor(BLACK);
     tft.setTextSize(2);
     
     for (int i = 0; i < 6; i++) {
         drawButton(i);
     }
-    
+    tft.fillScreen(BLACK);
+    tft.setTextColor(WHITE);
+    tft.setTextSize(2);
     tft.setCursor(50, 10);
     tft.print("Smart Home");
 }
@@ -167,9 +291,13 @@ void drawButton(int index) {
     tft.fillRect(devices[index].x, devices[index].y, devices[index].w, devices[index].h, 
                  devices[index].isOn ? GREEN : RED);
     tft.setCursor(devices[index].x + 20, devices[index].y + 15);
-    tft.setTextColor(WHITE);
+    tft.setTextColor(BLACK);
     tft.setTextSize(2);
     tft.print(devices[index].isOn ? "ON" : "OFF");
+    tft.setCursor(devices[index].x + 60, devices[index].y + 5);
+    tft.setTextColor(BLACK);
+    tft.setTextSize(2);
+    tft.print(devices[index].name);
     // Serial.print("Sent: ID "); Serial.print(index);
     // Serial.print(" | State "); Serial.println(devices[index].isOn);
     // String data = String(index) + "," + (devices[index].isOn ? "ON" : "OFF");
@@ -194,8 +322,8 @@ void readTouch() {
         
         int correctedTouchX = touchY;                // Tọa độ Y của cảm ứng sẽ trở thành tọa độ X của màn hình
         int correctedTouchY = touchX;  // Tọa độ X của cảm ứng sẽ trở thành tọa độ Y của màn hình
-        Serial.print("correctedTouchX: "); Serial.print(correctedTouchX);
-        Serial.print(" | correctedTouchY: "); Serial.println(correctedTouchY);
+        // Serial.print("correctedTouchX: "); Serial.print(correctedTouchX);
+        // Serial.print(" | correctedTouchY: "); Serial.println(correctedTouchY);
         // Serial.print("device[2]: ");Serial.print(devices[2].x);Serial.print(" | ");Serial.println(devices[2].y);
         // Serial.print("device[5]: ");Serial.print(devices[5].x);Serial.print(" | ");Serial.println(devices[5].y);
         // Kiểm tra các nút
@@ -235,18 +363,30 @@ void readTouch() {
 
 // Cập nhật trạng thái thiết bị và thông tin trên màn hình
 void updateStatus() {
-    // Giả sử lấy nhiệt độ và độ ẩm
-    float temp = 30;
-    float hum = 40;
+    // // Giả sử lấy nhiệt độ và độ ẩm
+    // float temp = 30;
+    // float hum = 40;
 
     // Hiển thị nhiệt độ và độ ẩm
     tft.fillRect(40, screenHeight - 60, screenWidth - 80, 40, BLACK); // Chỉnh sửa vị trí
     tft.setCursor(40, screenHeight - 60);
     tft.setTextColor(YELLOW);
     tft.setTextSize(2);
-    tft.print("Temp: "); tft.print(temp); tft.print(" C");
+    tft.print("Temp: "); tft.print(sensorData.temp); tft.print(" C");
     tft.setCursor(40, screenHeight - 40);
-    tft.print("Hum: "); tft.print(hum); tft.print(" %");
+    tft.print("Hum: "); tft.print(sensorData.hum); tft.print(" %");
+
+    tft.setCursor(300, screenHeight - 60);
+    tft.setTextColor(YELLOW);
+    tft.setTextSize(2);
+    tft.fillRect(300, screenHeight - 60, screenWidth - 80, 20, BLACK);
+    tft.print("TE: "); tft.print(sensorData.energy); tft.print(" kWh");
+  
+    tft.setCursor(300, screenHeight - 40);
+    tft.setTextColor(YELLOW);
+    tft.setTextSize(2);
+    tft.fillRect(300, screenHeight - 40, screenWidth - 80, 20, BLACK);
+    tft.print("TP: "); tft.print(sensorData.power); tft.print(" W");
 
     // Hiển thị thông tin công suất và thời gian của các thiết bị đang bật
     for (int i = 0; i < 6; i++) {
@@ -258,14 +398,17 @@ void updateStatus() {
             seconds = seconds % 60;
 
             // Chỉ cập nhật phần thay đổi
-            tft.fillRect(devices[i].x, devices[i].y + 55, 100, 30, BLACK);
-            tft.setCursor(devices[i].x + 10, devices[i].y + 55);
+            tft.fillRect(devices[i].x, devices[i].y + 30, 100, 60, BLACK);
+            tft.setCursor(devices[i].x + 10, devices[i].y + 30);
             tft.setTextColor(WHITE);
             tft.setTextSize(1);
+            tft.print("Energy: "); tft.print(devices[i].energy); tft.print("kWh");
+
+            tft.setCursor(devices[i].x + 10, devices[i].y + 45);
             tft.print("Power: "); tft.print(devices[i].power); tft.print("W");
 
             // Hiển thị thời gian
-            tft.setCursor(devices[i].x + 10, devices[i].y + 70);
+            tft.setCursor(devices[i].x + 10, devices[i].y + 55);
             tft.print("Time: ");
             if (hours < 10) tft.print("0");
             tft.print(hours);

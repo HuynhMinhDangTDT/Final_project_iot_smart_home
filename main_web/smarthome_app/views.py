@@ -15,6 +15,7 @@ from rest_framework import exceptions
 import firebase_admin as admin
 import firebase_admin.auth as auth
 from django.contrib import auth
+from datetime import datetime
 
 # from smarthome_app.middleware import FirebaseAuthMiddleware
 # from server_smart_skylight import  server
@@ -42,6 +43,26 @@ firebase_admin.initialize_app(cred, {
 firebase = pyrebase.initialize_app(config)
 authe = firebase.auth()
 DataBase = firebase.database()
+
+# Khởi tạo biến lưu thời gian bật nút
+toggle_start_times = {
+    0: None,
+    1: None,
+    2: None,
+    3: None,
+    4: None,
+    5: None,
+}
+
+# Khởi tạo biến lưu thời gian đã trôi qua (tính bằng giây)
+toggle_durations = {
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+}
 
 def LoginPage(request):
     # if request.method == 'POST':
@@ -240,36 +261,48 @@ def dashboard(request):
                     name_device0 = devices[0]['name']
                     power_device0 = devices[0].get('power')
                     Energy_device0 = devices[0].get('energyConsumption')
+                    power_device0 = round(power_device0 / 1000, 2)
+                    Energy_device0 = round(Energy_device0 / 1000, 2)
                 except:
                     name_device0 = "Chua duoc them vao"
                 try:
                     name_device1 = devices[1]['name']
                     power_device1 = devices[1].get('power')
                     Energy_device1 = devices[1].get('energyConsumption')
+                    power_device1 = round(power_device1 / 1000, 2)
+                    Energy_device1 = round(Energy_device1 / 1000, 2)
                 except:
                     name_device1 = "Chua duoc them vao"
                 try:
                     name_device2 = devices[2]['name']
                     power_device2 = devices[2].get('power')
                     Energy_device2 = devices[2].get('energyConsumption')
+                    power_device2 = round(power_device2 / 1000, 2)
+                    Energy_device2 = round(Energy_device2 / 1000, 2)
                 except:
                     name_device2 = "Chua duoc them vao"
                 try:
                     name_device3 = devices[3]['name']
                     power_device3 = devices[3].get('power')
                     Energy_device3 = devices[3].get('energyConsumption')
+                    power_device3 = round(power_device3 / 1000, 2)
+                    Energy_device3 = round(Energy_device3 / 1000, 2)
                 except:
                     name_device3 = "Chua duoc them vao"
                 try:
                     name_device4 = devices[4]['name']
                     power_device4 = devices[4].get('power')
                     Energy_device4 = devices[4].get('energyConsumption')
+                    power_device4 = round(power_device4 / 1000, 2)
+                    Energy_device4 = round(Energy_device4 / 1000, 2)
                 except:
                     name_device4 = "Chua duoc them vao"
                 try:
                     name_device5 = devices[5]['name']
                     power_device5 = devices[5].get('power')
                     Energy_device5 = devices[5].get('energyConsumption')
+                    power_device5 = round(power_device5 / 1000, 2)
+                    Energy_device5 = round(Energy_device5 / 1000, 2)
                 except:
                     name_device5 = "Chua duoc them vao"
             
@@ -285,13 +318,70 @@ def dashboard(request):
             power_consumption = user_info.get("capacity", {})
             if power_consumption:
                 total_energy_use = power_consumption.get('CongSuatTieuThu', 'N/A')
+                total_energy_use = round(total_energy_use / 1000, 2)
                 print(f"Công suất tiêu thụ: {total_energy_use}")
+                total_Power = power_consumption.get('TongCongSuat', 'N/A')
+                total_Power = round(total_Power / 1000, 4)
+                print(f"Công suất tiêu thụ: {total_Power}")
+                
                 
             # devices = user_info.get("device", {})
             # for device in devices:
             #     print(f"Device ID: {device.get('id')}, Name: {device.get('name')}, Status: {device.get('status')}")
             
-            
+    # Cập nhật thời gian bật cho từng toggle_state nếu nó được bật (True)
+    if toggle_state0 == True:
+        if toggle_start_times[0] is None:  # Nếu chưa lưu thời gian bật
+            toggle_start_times[0] = datetime.now()
+    else:
+        toggle_start_times[0] = None  # Nếu tắt, reset thời gian
+
+    if toggle_state1 == True:
+        if toggle_start_times[1] is None:
+            toggle_start_times[1] = datetime.now()
+    else:
+        toggle_start_times[1] = None
+
+    if toggle_state2 == True:
+        if toggle_start_times[2] is None:
+            toggle_start_times[2] = datetime.now()
+    else:
+        toggle_start_times[2] = None
+
+    if toggle_state3 == True:
+        if toggle_start_times[3] is None:
+            toggle_start_times[3] = datetime.now()
+    else:
+        toggle_start_times[3] = None
+
+    if toggle_state4 == True:
+        if toggle_start_times[4] is None:
+            toggle_start_times[4] = datetime.now()
+    else:
+        toggle_start_times[4] = None
+
+    if toggle_state5 == True:
+        if toggle_start_times[5] is None:
+            toggle_start_times[5] = datetime.now()
+    else:
+        toggle_start_times[5] = None
+
+    # Cập nhật thời gian đã trôi qua
+    toggle_durations[0] = get_duration(toggle_start_times[0])
+    toggle_durations[1] = get_duration(toggle_start_times[1])
+    toggle_durations[2] = get_duration(toggle_start_times[2])
+    toggle_durations[3] = get_duration(toggle_start_times[3])
+    toggle_durations[4] = get_duration(toggle_start_times[4])
+    toggle_durations[5] = get_duration(toggle_start_times[5])
+    # print(toggle_durations[0])
+    
+    formatted_date = get_formatted_date()
+    
+    # Lấy thời gian hiện tại
+    current_time = datetime.now()
+
+    # Định dạng thời gian theo "hh:mm"
+    formatted_time = current_time.strftime("%H:%M")
                 
     if request.method == "POST":
         # Cập nhật trạng thái toggle
@@ -536,5 +626,35 @@ def dashboard(request):
                     'toggles2': toggle_state2,
                     'toggles3': toggle_state3,
                     'toggles4': toggle_state4,
-                    'toggles5': toggle_state5
+                    'toggles5': toggle_state5,
+                    'toggle_durations_0': toggle_durations[0],
+                    'toggle_durations_1': toggle_durations[1],
+                    'toggle_durations_2': toggle_durations[2],
+                    'toggle_durations_3': toggle_durations[3],
+                    'toggle_durations_4': toggle_durations[4],
+                    'toggle_durations_5': toggle_durations[5],
+                    'formatted_date': formatted_date,
+                    'formatted_time': formatted_time,
+                    'total_Power': total_Power,
     })
+
+# Hàm để tính thời gian đã trôi qua
+def get_duration(start_time):
+    if start_time:
+        # Tính số giây đã trôi qua
+        duration_in_seconds = (datetime.now() - start_time).total_seconds()
+        return format_duration(duration_in_seconds)
+    return "00:00:00"  # Nếu không có thời gian bắt đầu, trả về "00:00:00"
+
+def format_duration(seconds):
+    hours = int(seconds // 3600)
+    minutes = int((seconds % 3600) // 60)
+    seconds = int(seconds % 60)
+    return f"{hours:02}:{minutes:02}:{seconds:02}"
+
+def get_formatted_date():
+    # Lấy ngày và giờ hiện tại
+    current_date = datetime.now()
+    # Định dạng ngày theo yêu cầu: Ví dụ: Saturday January 20, 2025
+    formatted_date = current_date.strftime("%A %B %d, %Y")
+    return formatted_date
