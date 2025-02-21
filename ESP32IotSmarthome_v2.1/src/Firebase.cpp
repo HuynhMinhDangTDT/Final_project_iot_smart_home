@@ -262,15 +262,22 @@ void readcapacity(const char* quserid){
   // delay(10);                      // delay to allow viewing values
   ////////////////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+
+  String urlEnergy2 = String("Users/") + quserid + String("/capacity/CongSuatTieuThu");
+  String urlCapacity = String("Users/") + quserid + String("/capacity/TongCongSuat");
+  String urlDevice_name = String("Users/") + quserid + String("/device/") + i + String ("/name");
+  name_device = Firebase.RTDB.getString(&fbdo, urlDevice_name) ? fbdo.to<const char *>() : "" ;
+  // Serial.println(name_device);
   String dataTOTALENERGY = "TOTALENERGY:"+String(Energy);
   Serial2.println(dataTOTALENERGY);
   delay(200);
   String dataTOTALPower = "TOTALPOWER:"+String(Power);
   Serial2.println(dataTOTALPower);
   delay(200);
-
-  String urlEnergy2 = String("Users/") + quserid + String("/capacity/CongSuatTieuThu");
-  String urlCapacity = String("Users/") + quserid + String("/capacity/TongCongSuat");
+  String data_name_device =  "NAME:"+ String(i) + "," + name_device;
+  Serial2.println(data_name_device);
+  delay(200);
   if (Firebase.ready() )
   {
     if (Firebase.RTDB.setFloat(&fbdo, urlEnergy2 , Energy)){
@@ -289,6 +296,13 @@ void readcapacity(const char* quserid){
       // lcd.print("P :" + String(int(Power)) + String(" W"));
     }
     Serial.println();
+    // String dataTOTALENERGY = "TOTALENERGY:"+String(Energy);
+    // Serial2.println(dataTOTALENERGY);
+    // // delay(200);
+    // String dataTOTALPower = "TOTALPOWER:"+String(Power);
+    // Serial2.println(dataTOTALPower);
+    // // delay(200);
+    
   }
   
 
@@ -329,13 +343,7 @@ void readcapacity(const char* quserid){
         case 4: sensorValue = analogRead(capability_RL5); break;
         case 5: sensorValue = analogRead(capability_RL6); break;
     }
-    String urlDevice_name = String("Users/") + quserid + String("/device/") + i + String ("/name");
-    name_device = Firebase.RTDB.getString(&fbdo, urlDevice_name) ? fbdo.to<const char *>() : "" ;
-    // Serial.println(name_device);
-    delay(200);
-    String data_name_device =  "NAME:"+ String(i) + "," + name_device;
-    Serial2.println(data_name_device);
-    delay(200);
+    
 
     String urlDevice = String("Users/") + quserid + String("/device/") + i + String ("/status");
     led_state = Firebase.RTDB.getString(&fbdo, urlDevice) ? fbdo.to<const char *>() : "false" ;
@@ -356,10 +364,10 @@ void readcapacity(const char* quserid){
       // }
       String dataENERGY = "ENERGY:"+ String(i) + "," + String(energyConsumed[i]);
       Serial2.println(dataENERGY);
-      delay(200);
+      // delay(100);
       String dataPower = "POWER:"+ String(i) + "," + String(powerRL);
       Serial2.println(dataPower);
-      delay(200);
+      // delay(100);
       // Lưu dữ liệu công suất và năng tiêu thụ vào Firebase
       String urlPower = String("Users/") + quserid + String("/device/") + i + String("/power");
       String urlEnergy = String("Users/") + quserid + String("/device/") + i + String("/energyConsumption");
@@ -514,7 +522,7 @@ void TurnLight(const char* quserid)
                   digitalWrite(led_gpio_pin, LOW);
                   String data2 = "BUTTON:"+String(i) + "," + "OFF";
                   Serial2.println(data2);  // Gửi dữ liệu về trạng thái nút
-                  // delay(10);
+                  delay(200);
               }
               else if (led_gpio == i && led_state == "true") {
                   // Serial.println(String("ESP32-GPIO ") + led_gpio_pin + String(" is ON"));
@@ -524,7 +532,7 @@ void TurnLight(const char* quserid)
                   digitalWrite(led_gpio_pin, HIGH);
                   String data2 = "BUTTON:"+String(i) + "," + "ON";
                   Serial2.println(data2);  // Gửi dữ liệu về trạng thái nút
-                  // delay(10);
+                  delay(200);
               }
               else {
                   Serial.printf("Get string... %s\n", Firebase.RTDB.getString(&fbdo, urlDevice) ? fbdo.to<const char *>() : fbdo.errorReason().c_str());

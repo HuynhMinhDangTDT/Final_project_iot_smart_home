@@ -3,7 +3,6 @@
 #include <Adafruit_GFX.h>
 #include <EEPROM.h>
 #include <Wire.h>
-<<<<<<< HEAD
 // #include <SoftwareSerial.h>  // Thư viện để sử dụng SoftwareSerial
 
 // Chân RX và TX cho SoftwareSerial
@@ -12,16 +11,6 @@
 
 // Khởi tạo SoftwareSerial với RX_PIN và TX_PIN
 // SoftwareSerial mySerial(RX_PIN, TX_PIN);  // RX, TX
-=======
-#include <SoftwareSerial.h>  // Thư viện để sử dụng SoftwareSerial
-
-// Chân RX và TX cho SoftwareSerial
-#define RX_PIN 16   // Chân RX (Arduino Mega)
-#define TX_PIN 17   // Chân TX (Arduino Mega)
-
-// Khởi tạo SoftwareSerial với RX_PIN và TX_PIN
-SoftwareSerial mySerial(RX_PIN, TX_PIN);  // RX, TX
->>>>>>> f9bb2c87a45f5bce852a63edae3f49d9a3936f41
 
 // Cấu hình cảm ứng (tuỳ chỉnh theo màn hình)
 #define YP A3  
@@ -69,11 +58,7 @@ void updateButtonPositions() {
 
 void setup() {
     Serial.begin(115200);
-<<<<<<< HEAD
     // mySerial.begin(9600); // Kết nối với ESP32-S3 qua SoftwareSerial
-=======
-    mySerial.begin(9600); // Kết nối với ESP32-S3 qua SoftwareSerial
->>>>>>> f9bb2c87a45f5bce852a63edae3f49d9a3936f41
     Serial1.begin(9600);
     Wire.begin();  // Khởi tạo I2C Master
     tft.begin(tft.readID());
@@ -113,7 +98,6 @@ void updateDeviceState(String data) {
     }
 }
 
-<<<<<<< HEAD
 void readFromESP32() {
     if (Serial1.available()) {
         String data = Serial1.readStringUntil(';');  // Đọc chuỗi đến khi gặp dấu ';'
@@ -147,8 +131,6 @@ void readFromESP32() {
     }
 }
 
-=======
->>>>>>> f9bb2c87a45f5bce852a63edae3f49d9a3936f41
 void loop() {
     readTouch();
     updateStatus();
@@ -212,13 +194,8 @@ void readTouch() {
         
         int correctedTouchX = touchY;                // Tọa độ Y của cảm ứng sẽ trở thành tọa độ X của màn hình
         int correctedTouchY = touchX;  // Tọa độ X của cảm ứng sẽ trở thành tọa độ Y của màn hình
-<<<<<<< HEAD
         Serial.print("correctedTouchX: "); Serial.print(correctedTouchX);
         Serial.print(" | correctedTouchY: "); Serial.println(correctedTouchY);
-=======
-        // Serial.print("correctedTouchX: "); Serial.print(correctedTouchX);
-        // Serial.print(" | correctedTouchY: "); Serial.println(correctedTouchY);
->>>>>>> f9bb2c87a45f5bce852a63edae3f49d9a3936f41
         // Serial.print("device[2]: ");Serial.print(devices[2].x);Serial.print(" | ");Serial.println(devices[2].y);
         // Serial.print("device[5]: ");Serial.print(devices[5].x);Serial.print(" | ");Serial.println(devices[5].y);
         // Kiểm tra các nút

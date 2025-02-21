@@ -268,7 +268,7 @@ void loop() {
             updateDeviceState(data);  // Gọi hàm cập nhật trạng thái thiết bị
         }
     }
-    // delay(10);
+    // delay(100);
 }
 
 // Vẽ giao diện ban đầu
