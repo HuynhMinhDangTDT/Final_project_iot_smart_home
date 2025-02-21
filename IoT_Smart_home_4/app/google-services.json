@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "327764472304",
+    "firebase_url": "https://iot-smart-home-a7c95-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "iot-smart-home-a7c95",
+    "storage_bucket": "iot-smart-home-a7c95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327764472304:android:22053dcc637a1bfa686d35",
+        "android_client_info": {
+          "package_name": "com.example.smarthomeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgJjtfiNHJ-6MH0fYqhiUpubzdKi8XNuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
