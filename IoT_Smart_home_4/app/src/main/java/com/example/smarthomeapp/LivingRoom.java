@@ -34,7 +34,7 @@ public class LivingRoom extends AppCompatActivity {
     FirebaseAuth mAuth;
     ListDeviceApdater listDeviceApdater;
     ArrayList<DeviceModel> list;
-   // private String nameRoom;
+    // private String nameRoom;
     private ActivityLivingRoomBinding binding;
 
     @Override

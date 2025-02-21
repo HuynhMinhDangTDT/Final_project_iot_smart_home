@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-01-08T19:37:08.394412600Z">
+        <DropdownSelection timestamp="2025-02-11T05:23:11.765617100Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=ibaunn9965oj5pyh" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\PC\.android\avd\Xiaomi_K40_Gaming_API.avd" />
             </handle>
           </Target>
         </DropdownSelection>

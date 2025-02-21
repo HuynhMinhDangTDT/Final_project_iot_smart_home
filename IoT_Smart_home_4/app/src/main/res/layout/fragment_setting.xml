@@ -46,7 +46,7 @@
                         android:src="@drawable/ic_camera"
                         app:layout_anchor="@id/imgProfile"
                         app:layout_anchorGravity="end|bottom"
-                        app:tint="@color/white" />
+                        app:tint="@color/black" />
 
                 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -58,11 +58,11 @@
                     android:layout_marginTop="10dp"
                     android:drawablePadding="10dp"
                     android:text="Đăng"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     app:drawableEndCompat="@drawable/ic_edit"
-                    app:drawableTint="@color/white" />
+                    app:drawableTint="@color/black" />
             </LinearLayout>
 
 

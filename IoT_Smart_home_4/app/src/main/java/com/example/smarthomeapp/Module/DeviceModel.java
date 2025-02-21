@@ -41,7 +41,6 @@ public class DeviceModel {
     public String getStyle() {
         return style;
     }
-
     public boolean isStatus() {
         return status;
     }

@@ -41,15 +41,26 @@
                 android:textColor="@color/black"
                 android:textSize="35dp" />
 
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="85dp"-->
+<!--                android:layout_marginTop="95dp"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Quản lý phòng khách của bạn"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="20dp" />-->
             <TextView
+                android:id="@+id/TongCongSuat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="85dp"
                 android:layout_marginTop="95dp"
                 android:gravity="center"
-                android:text="Quản lý phòng khách của bạn"
+                android:text="Tổng Công suất: 52 W"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/CongSuatTieuThu"
@@ -58,10 +69,11 @@
                 android:layout_marginLeft="85dp"
                 android:layout_marginTop="125dp"
                 android:gravity="center"
-                android:text="Công suất: 52 KWh"
+                android:text="Điện năng: 52 KWh"
                 android:textColor="@color/black"
                 android:textSize="25dp"
                 android:textStyle="bold" />
+
 
 
             <LinearLayout

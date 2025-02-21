@@ -33,8 +33,9 @@ public class AddDevice extends AppCompatActivity implements View.OnClickListener
 
     Button addWidgetSwitch;
     Button confirmAdd;
-    Button[] dButton = new Button[28];
-    int[] buttonIds = {R.id.D0, R.id.D1, R.id.D2, R.id.D3, R.id.D4, R.id.D5, R.id.D6, R.id.D7, R.id.D8};
+    Button[] dButton = new Button[6];
+//    int[] buttonIds = {R.id.D0, R.id.D1, R.id.D2, R.id.D3, R.id.D4, R.id.D5, R.id.D6, R.id.D7, R.id.D8};
+    int[] buttonIds = {R.id.D0, R.id.D1, R.id.D2, R.id.D3, R.id.D4, R.id.D5};
     EditText widgetNameAdd;
     FirebaseAuth mAuth;
 
@@ -59,7 +60,7 @@ public class AddDevice extends AppCompatActivity implements View.OnClickListener
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
 
-        for(int i=0;i<9;i++) {
+        for(int i=0;i<6;i++) {
             dButton[i] = findViewById(buttonIds[i]);
             Log.i("AddDevice", "dButton: " + dButton[i]);
             Log.i("AddDevice", "buttonIds: " + buttonIds[i]);
@@ -69,7 +70,7 @@ public class AddDevice extends AppCompatActivity implements View.OnClickListener
         addWidgetSwitch.setBackgroundColor(Color.GRAY);
         addWidgetSwitch.setOnClickListener(this);
         confirmAdd.setOnClickListener(this);
-        for(int i=0;i<9;i++) {
+        for(int i=0;i<6;i++) {
             dButton[i].setOnClickListener(this);
             dButton[i].setBackgroundColor(Color.GRAY);
         }
@@ -116,7 +117,7 @@ public class AddDevice extends AppCompatActivity implements View.OnClickListener
             widgetType = "";
         }
 
-        for(int i=0; i<9;i++){
+        for(int i=0; i<6;i++){
             if((view.getId() == buttonIds[i]) && checkbutton == 0){
                 flatButton = i;
                 checkbutton = 1;
